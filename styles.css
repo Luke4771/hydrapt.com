@@ -286,7 +286,23 @@ nav.main-nav {
   background: radial-gradient(50% 50% at 50% 50%, hsla(0,0%,85%,.04) 0, hsla(0,0%,45%,.02) 80%, transparent 100%);
 }
 
-.hero-inner { position: relative; padding-top: 3.5rem; }
+/* Dot grid pattern – visible in mockup area, fades out toward text */
+.hero-dot-pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.25) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  /* Ellipse centered lower in mockup area, below App Store badge */
+  -webkit-mask-image: radial-gradient(ellipse 75% 42% at 50% 76%, black 15%, transparent 58%);
+  mask-image: radial-gradient(ellipse 75% 42% at 50% 76%, black 15%, transparent 58%);
+}
+.dark .hero-dot-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.20) 1.5px, transparent 1.5px);
+}
+
+.hero-inner { position: relative; padding-top: 7rem; }
 .hero-container { margin: 0 auto; max-width: 80rem; padding: 0 1.5rem; }
 .hero-center { text-align: center; margin: 0 auto; }
 
@@ -384,14 +400,7 @@ nav.main-nav {
   justify-content: center;
 }
 .hero-logo-fade {
-  position: absolute; inset: 0; z-index: 10;
-  /* softer, less intrusive fade */
-  background: linear-gradient(to bottom, transparent 50%, var(--background) 85%);
-  opacity: 0.5;
-  pointer-events: none;
-}
-.dark .hero-logo-fade {
-  background: linear-gradient(to bottom, transparent 35%, #000);
+  display: none;
 }
 .hero-logo-inner {
   position: relative;
@@ -441,11 +450,11 @@ nav.main-nav {
    FEATURES SECTION
    ============================================ */
 .features-section {
-  padding: 8rem 0 6rem;
+  padding: 10rem 0 6rem;
   background: linear-gradient(180deg, #ffffff 0%, #CAD8DD 45%, #ffffff 100%);
 }
 .dark .features-section {
-  background: linear-gradient(180deg, #000000 0%, #0d1b2a 45%, #000000 100%);
+  background: linear-gradient(180deg, #000000 0%, #0a1420 40%, #0d1b2a 50%, #0a1420 60%, #000000 100%);
 }
 .features-container { margin: 0 auto; max-width: 80rem; padding: 0 1.5rem; }
 .features-header {
@@ -462,7 +471,7 @@ nav.main-nav {
   font-size: 1.125rem; color: var(--muted-foreground);
 }
 
-/* Sticky scroll layout */
+/* Cards left + Phone right layout */
 .features-sticky-wrap {
   display: flex;
   flex-direction: column;
@@ -475,6 +484,7 @@ nav.main-nav {
   align-items: center;
   justify-content: center;
   position: relative;
+  order: -1; /* phone on top on mobile */
 }
 .features-phone-sticky {
   position: relative;
@@ -487,49 +497,70 @@ nav.main-nav {
 .features-steps-col {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 }
 
-/* Individual step card */
+/* Individual step card – compact & clickable */
 .feature-step {
   position: relative;
-  border-radius: 1.5rem;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.7);
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  border-left: 3px solid transparent;
+  background: rgba(255,255,255,0.55);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 2rem;
-  transition: all 0.4s ease;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.feature-step:hover {
+  background: rgba(255,255,255,0.85);
 }
 .dark .feature-step {
-  background: rgba(18,18,18,0.7);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.dark .feature-step:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
 .feature-step.is-active {
-  border-color: rgba(59,130,246,0.4);
-  box-shadow: 0 8px 32px rgba(59,130,246,0.12);
+  border-left-color: transparent;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.10);
 }
 .dark .feature-step.is-active {
-  border-color: rgba(255,255,255,0.15);
-  box-shadow: 0 8px 32px rgba(255,255,255,0.06);
+  border-left-color: transparent;
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(59,130,246,0.2);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.1);
 }
-.feature-step-num {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: rgba(59,130,246,0.7);
-  margin-bottom: 0.75rem;
+
+/* Improve text contrast in dark mode for feature cards */
+.dark .feature-step,
+.dark .feature-step h3 {
+  color: var(--card-foreground);
 }
-.dark .feature-step-num {
-  color: rgba(255,255,255,0.4);
+.dark .feature-step p {
+  color: rgba(255,255,255,0.65);
 }
 .feature-step h3 {
-  font-size: 1.75rem; font-weight: 700; letter-spacing: -0.025em;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025em;
+  margin-bottom: 0.35rem;
   text-wrap: balance;
 }
 .feature-step p {
-  font-size: 1.0625rem; color: var(--muted-foreground); line-height: 1.75;
+  font-size: 0.9375rem; color: var(--muted-foreground); line-height: 1.6;
+  margin: 0;
+}
+/* Always show description text for feature cards */
+.feature-step p {
+  max-height: none;
+  overflow: visible;
+  opacity: 1;
+  transition: none;
+  margin-top: 0.25rem;
 }
 .feature-screen {
   transition: opacity 0.3s ease;
@@ -578,8 +609,8 @@ nav.main-nav {
   background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0.15) 50%, rgba(59,130,246,0.05) 75%, transparent 90%);
 }
 .dark .mockup-glow-circle {
-  opacity: 0.9;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.03) 70%, transparent 85%);
+  opacity: 0.85;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.06) 40%, rgba(255,255,255,0.02) 70%, transparent 85%);
 }
 
 /* ============================================
@@ -693,16 +724,16 @@ nav.main-nav {
   width: 34rem; height: 13rem;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: linear-gradient(to right, rgba(59,130,246,0.22), rgba(56,189,248,0.22), transparent);
-  filter: blur(48px);
+  background: linear-gradient(to right, rgba(59,130,246,0.10), rgba(56,189,248,0.10), transparent);
+  filter: blur(64px);
 }
 .reviews-bg .glow2 {
   position: absolute; right: 50%; bottom: 2.5rem;
   width: 15rem; height: 15rem;
   transform: translateX(50%);
   border-radius: 50%;
-  background: rgba(100,116,139,0.1);
-  filter: blur(48px);
+  background: rgba(100,116,139,0.05);
+  filter: blur(64px);
 }
 .reviews-container {
   position: relative; margin: 0 auto; max-width: 72rem; padding: 0 1.5rem;
@@ -882,8 +913,27 @@ nav.main-nav {
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--foreground);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid var(--muted-foreground);
+  border-bottom: 2px solid var(--muted-foreground);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.3s ease;
+}
+.faq-item summary.is-open::after {
+  transform: rotate(-135deg) translateY(-2px);
+}
 .faq-content-wrapper {
   overflow: hidden;
   transition: height 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
@@ -945,33 +995,36 @@ nav.main-nav {
   .phone-mockup-wrapper { max-width: 280px; }
 }
 @media (min-width: 768px) {
-  .hero-inner { padding-top: 6rem; }
+  .hero-inner { padding-top: 8rem; }
   .hero-heading { font-size: 4.05rem; margin-top: 0.75rem; }
   .hero-logo-area { margin-top: -2.5rem; }
   /* bump size */
   .hero-logo-inner { max-width: 54rem; }
-  .features-section { padding: 10rem 0 7rem; }
+  .features-section { padding: 12rem 0 7rem; }
   .features-header { margin-bottom: 5rem; }
   .features-header h2 { font-size: 4.375rem; }
-  /* Sticky layout: side-by-side on tablet+ */
+  /* Side-by-side: cards LEFT, phone RIGHT */
   .features-sticky-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: start;
+    align-items: center;
   }
   .features-phone-col {
+    order: 2; /* phone on right */
     position: sticky;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 6rem;
     height: fit-content;
     z-index: 5;
   }
   .features-steps-col {
-    gap: 2rem;
-    padding: 2rem 0;
+    order: 1; /* cards on left */
+    justify-content: center;
+    align-self: center;
+    gap: 0.75rem;
+    padding: 0;
   }
-  .feature-step h3 { font-size: 2rem; }
+  .feature-step h3 { font-size: 1.375rem; }
   .phone-mockup { width: 320px; }
   .phone-mockup-wrapper { max-width: 320px; }
   .privacy-section { padding: 3rem 0 6rem; scroll-margin-top: 7rem; }
@@ -1003,9 +1056,9 @@ nav.main-nav {
   .hero-heading { margin-top: 1.5rem; }
   /* increased max-width, remove pre-scaling so final size is ~1.5x original large */
   .hero-logo-inner { max-width: 63rem; }
-  .feature-step h3 { font-size: 2.25rem; }
+  .feature-step h3 { font-size: 1.5rem; }
   .features-sticky-wrap { gap: 4rem; }
-  .features-steps-col { gap: 2.5rem; }
+  .features-steps-col { gap: 0.75rem; }
   .hero-bg-decor { display: block; }
   .hero-sub { font-size: 1.25rem; }
   .features-header p, .privacy-header p, .reviews-header p, .pricing-header p, .faq-header p { font-size: 1.25rem; }
@@ -1015,6 +1068,7 @@ nav.main-nav {
 @media (min-width: 1280px) {
   .hero-heading { font-size: 4.725rem; }
   .features-sticky-wrap { gap: 5rem; }
+  .features-steps-col { gap: 1rem; }
   .phone-mockup { width: 380px; }
   .phone-mockup-wrapper { max-width: 400px; }
   .reviews-grid { grid-template-columns: repeat(4, 1fr); }

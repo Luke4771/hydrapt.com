@@ -230,113 +230,101 @@ function initTextReveal() {
 function initFaqAnimations() {
   document.querySelectorAll('.faq-item').forEach(details => {
     const summary = details.querySelector('summary');
-    const content = details.querySelector('p');
-    if (!summary || !content) return;
+    const p = details.querySelector('p');
+    if (!summary || !p) return;
 
-    // Wrap content in an animated container
+    // Wrap <p> in height-animatable wrapper
     const wrapper = document.createElement('div');
     wrapper.className = 'faq-content-wrapper';
-    content.parentNode.insertBefore(wrapper, content);
-    wrapper.appendChild(content);
+    p.parentNode.insertBefore(wrapper, p);
+    wrapper.appendChild(p);
 
-    let isAnimating = false;
+    // Start all closed
+    details.open = false;
+    wrapper.style.height = '0';
+    wrapper.style.opacity = '0';
 
-    summary.addEventListener('click', (e) => {
+    summary.addEventListener('click', e => {
       e.preventDefault();
-      if (isAnimating) return;
-      isAnimating = true;
+      const isOpen = details.open;
 
-      if (details.open) {
-        // --- Close animation ---
-        const height = wrapper.scrollHeight;
-        wrapper.style.height = height + 'px';
-        wrapper.style.opacity = '1';
-        requestAnimationFrame(() => {
-          wrapper.style.height = '0px';
-          wrapper.style.opacity = '0';
-        });
-        wrapper.addEventListener('transitionend', function handler(ev) {
-          if (ev.propertyName !== 'height') return;
-          wrapper.removeEventListener('transitionend', handler);
-          details.open = false;
-          wrapper.style.height = '';
-          wrapper.style.opacity = '';
-          isAnimating = false;
-        });
-      } else {
-        // --- Open animation ---
+      if (!isOpen) {
+        // Open: measure natural height, animate to it
         details.open = true;
-        const height = wrapper.scrollHeight;
-        wrapper.style.height = '0px';
+        const targetH = wrapper.scrollHeight;
+        wrapper.style.height = targetH + 'px';
+        wrapper.style.opacity = '1';
+        wrapper.addEventListener('transitionend', () => {
+          wrapper.style.height = 'auto';
+        }, { once: true });
+        summary.classList.add('is-open');
+      } else {
+        // Close: pin current height first, then animate to 0
+        wrapper.style.height = wrapper.scrollHeight + 'px';
+        wrapper.offsetHeight; // force reflow
+        wrapper.style.height = '0';
         wrapper.style.opacity = '0';
-        requestAnimationFrame(() => {
-          wrapper.style.height = height + 'px';
-          wrapper.style.opacity = '1';
-        });
-        wrapper.addEventListener('transitionend', function handler(ev) {
-          if (ev.propertyName !== 'height') return;
-          wrapper.removeEventListener('transitionend', handler);
-          wrapper.style.height = '';
-          wrapper.style.opacity = '';
-          isAnimating = false;
-        });
+        wrapper.addEventListener('transitionend', () => {
+          details.open = false;
+        }, { once: true });
+        summary.classList.remove('is-open');
       }
     });
   });
 }
 
 /* =========================================
-   FEATURE SCROLL – Sticky Phone Screen Swap
+   FEATURE CLICK – Card-driven Screen Swap
    ========================================= */
 function initFeatureScroll() {
-  const screen = document.querySelector('.feature-screen');
+  const screen = document.querySelector('.phone-mockup .screen .feature-screen');
   const steps = document.querySelectorAll('.feature-step');
   if (!screen || !steps.length) return;
 
-  let current = '';
+  screen.loading = 'eager';
+  screen.decoding = 'async';
+  let current = screen.getAttribute('src') || '';
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const step = entry.target;
-          const src = step.dataset.screen;
+  function setScreen(src) {
+    if (!src || src === current) return;
 
-          // Highlight active step
-          steps.forEach((s) => s.classList.remove('is-active'));
-          step.classList.add('is-active');
+    screen.style.opacity = '0';
 
-          // Swap screen image with crossfade
-          if (src && src !== current) {
-            screen.style.opacity = '0';
-            screen.addEventListener(
-              'transitionend',
-              () => {
-                screen.src = src;
-                screen.style.opacity = '1';
-              },
-              { once: true }
-            );
-            current = src;
-          }
-        }
-      });
-    },
-    {
-      root: null,
-      rootMargin: '-35% 0px -35% 0px',
-      threshold: 0,
+    const reveal = () => {
+      screen.style.opacity = '1';
+    };
+
+    screen.addEventListener('load', reveal, { once: true });
+    screen.addEventListener('error', reveal, { once: true });
+    screen.src = src;
+    current = src;
+
+    // Fallback for cached images where load may not fire
+    if (screen.complete) {
+      reveal();
     }
-  );
+  }
 
-  steps.forEach((step) => observer.observe(step));
+  function activateStep(step) {
+    const src = step.dataset.screen;
 
-  // Set first step active on load
+    // Highlight active step
+    steps.forEach((s) => s.classList.remove('is-active'));
+    step.classList.add('is-active');
+
+    setScreen(src);
+  }
+
+  // Click handler for each card
+  steps.forEach((step) => {
+    step.addEventListener('click', () => activateStep(step));
+  });
+
+  // Set first step active on load (don't call setScreen – image is already visible)
   if (steps[0]) {
     steps[0].classList.add('is-active');
     const firstSrc = steps[0].dataset.screen;
     if (firstSrc) {
-      screen.src = firstSrc;
       current = firstSrc;
     }
   }
