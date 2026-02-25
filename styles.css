@@ -986,16 +986,27 @@ nav.main-nav {
   color: #a1a1a1;
   padding: 1.5rem 0;
 }
-.footer-container { max-width: 64rem; }
+.footer-container { max-width: 64rem; padding: 0 2rem; }
 .footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+.footer-instagram {
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.footer-instagram:hover { opacity: 1; }
+.footer-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  text-align: center;
-  font-size: 0.8125rem;
-  color: var(--muted-foreground);
 }
 .footer-dot { color: var(--muted-foreground); opacity: 0.4; }
 .footer-content a { transition: color 0.15s; }
@@ -1023,10 +1034,7 @@ nav.main-nav {
   background: var(--accent);
   color: var(--accent-foreground);
 }
-.lang-toggle svg {
-  border-radius: 2px;
-  flex-shrink: 0;
-}
+
 
 /* ============================================
    THEME TOGGLE
