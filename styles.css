@@ -450,7 +450,7 @@ nav.main-nav {
    FEATURES SECTION
    ============================================ */
 .features-section {
-  padding: 10rem 0 6rem;
+  padding: 6rem 0 5rem;
   background: linear-gradient(180deg, #ffffff 0%, #CAD8DD 45%, #ffffff 100%);
 }
 .dark .features-section {
@@ -465,7 +465,7 @@ nav.main-nav {
   display: flex; flex-direction: column; gap: 2rem; align-items: center;
 }
 .features-header h2 {
-  font-size: 3.75rem; font-weight: 700; letter-spacing: -0.025em;
+  font-size: 3rem; font-weight: 700; letter-spacing: -0.025em;
 }
 .features-header p {
   font-size: 1.125rem; color: var(--muted-foreground);
@@ -527,14 +527,14 @@ nav.main-nav {
 }
 .feature-step.is-active {
   border-left-color: transparent;
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 4px 20px rgba(59,130,246,0.10);
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 4px 20px rgba(59,130,246,0.12), 0 1px 4px rgba(0,0,0,0.06);
 }
 .dark .feature-step.is-active {
   border-left-color: transparent;
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(59,130,246,0.2);
-  box-shadow: 0 6px 22px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.1);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
 }
 
 /* Improve text contrast in dark mode for feature cards */
@@ -618,7 +618,7 @@ nav.main-nav {
    ============================================ */
 .privacy-section {
   background: white;
-  padding: 2rem 0 3.5rem;
+  padding: 5rem 0;
   scroll-margin-top: 6rem;
 }
 .dark .privacy-section { background: #000; }
@@ -629,7 +629,7 @@ nav.main-nav {
   margin-bottom: 3.5rem;
 }
 .privacy-header h2 {
-  font-size: 3.75rem; font-weight: 700; letter-spacing: -0.025em;
+  font-size: 3rem; font-weight: 700; letter-spacing: -0.025em;
 }
 .privacy-header p {
   font-size: 1.125rem; color: var(--muted-foreground);
@@ -949,12 +949,40 @@ nav.main-nav {
    FOOTER
    ============================================ */
 .footer-section {
-  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
   background: #fafafa;
-  padding: 3rem 0;
+  padding: 3rem 0 2.5rem;
 }
 .dark .footer-section { background: #000; }
 .footer-container { margin: 0 auto; max-width: 64rem; padding: 0 1.5rem; }
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: opacity 0.15s;
+}
+.footer-brand:hover { opacity: 0.75; }
+.footer-brand img { width: 30px; height: 30px; }
+.footer-tagline {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
 .footer-content {
   display: flex;
   flex-direction: column;
@@ -1000,9 +1028,9 @@ nav.main-nav {
   .hero-logo-area { margin-top: -2.5rem; }
   /* bump size */
   .hero-logo-inner { max-width: 54rem; }
-  .features-section { padding: 12rem 0 7rem; }
+  .features-section { padding: 8rem 0 7rem; }
   .features-header { margin-bottom: 5rem; }
-  .features-header h2 { font-size: 4.375rem; }
+  .features-header h2 { font-size: 3.75rem; }
   /* Side-by-side: cards LEFT, phone RIGHT */
   .features-sticky-wrap {
     display: grid;
@@ -1027,9 +1055,9 @@ nav.main-nav {
   .feature-step h3 { font-size: 1.375rem; }
   .phone-mockup { width: 320px; }
   .phone-mockup-wrapper { max-width: 320px; }
-  .privacy-section { padding: 3rem 0 6rem; scroll-margin-top: 7rem; }
+  .privacy-section { padding: 7rem 0; scroll-margin-top: 7rem; }
   .privacy-header { margin-bottom: 5rem; }
-  .privacy-header h2 { font-size: 4.375rem; }
+  .privacy-header h2 { font-size: 3.75rem; }
   .privacy-cards {
     grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
@@ -1043,6 +1071,7 @@ nav.main-nav {
   .reviews-header h2 { font-size: 3.75rem; }
   .pricing-section { padding: 7rem 0; scroll-margin-top: 3rem; }
   .pricing-header h2 { font-size: 3.75rem; }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
   .faq-section { padding: 7rem 0; }
   .faq-header h2 { font-size: 3.75rem; }
   .footer-content { flex-direction: row; gap: 0.5rem; }
@@ -1072,7 +1101,6 @@ nav.main-nav {
   .phone-mockup { width: 380px; }
   .phone-mockup-wrapper { max-width: 400px; }
   .reviews-grid { grid-template-columns: repeat(4, 1fr); }
-  .pricing-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* ============================================
