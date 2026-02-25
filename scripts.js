@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Fetch App Store rating ----
   fetchAppStoreRating();
+
+  // ---- Mobile carousels ----
+  initFeaturesCarousel();
+  initReviewsCarousel();
+
+  // ---- Scroll to top button ----
+  initScrollToTop();
 });
 
 /* =========================================
@@ -358,4 +365,106 @@ async function fetchAppStoreRating() {
   } catch {
     // silently fail
   }
+}
+
+/* =========================================
+   GENERIC SCROLL-SNAP CAROUSEL WITH DOTS
+   ========================================= */
+function initSnapCarousel(scrollContainer, dotsContainer, onChange) {
+  if (!scrollContainer || !dotsContainer) return;
+
+  const items = Array.from(scrollContainer.children).filter(
+    el => el.nodeType === 1 && !el.getAttribute('aria-hidden')
+  );
+  if (items.length === 0) return;
+
+  // Create dots
+  items.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Slide ${i + 1}`);
+    dot.addEventListener('click', () => {
+      items[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.dot');
+
+  // Observe which item is in the center
+  let currentIndex = 0;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = items.indexOf(entry.target);
+        if (idx !== -1 && idx !== currentIndex) {
+          currentIndex = idx;
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+          if (onChange) onChange(idx, items[idx]);
+        }
+      }
+    });
+  }, {
+    root: scrollContainer,
+    threshold: 0.6
+  });
+
+  items.forEach(item => observer.observe(item));
+}
+
+/* =========================================
+   FEATURES CAROUSEL (mobile)
+   ========================================= */
+function initFeaturesCarousel() {
+  const stepsCol = document.querySelector('.features-steps-col');
+  const dotsContainer = document.querySelector('.features-carousel-dots');
+  const screen = document.querySelector('.phone-mockup .screen .feature-screen');
+  const steps = document.querySelectorAll('.feature-step');
+
+  if (!stepsCol || !dotsContainer || !screen || !steps.length) return;
+
+  initSnapCarousel(stepsCol, dotsContainer, (idx, item) => {
+    // Update active step and phone screen
+    steps.forEach(s => s.classList.remove('is-active'));
+    item.classList.add('is-active');
+
+    const src = item.dataset.screen;
+    if (src && src !== screen.src) {
+      screen.style.opacity = '0';
+      const reveal = () => { screen.style.opacity = '1'; };
+      screen.addEventListener('load', reveal, { once: true });
+      screen.addEventListener('error', reveal, { once: true });
+      screen.src = src;
+      if (screen.complete) reveal();
+    }
+  });
+}
+
+/* =========================================
+   REVIEWS CAROUSEL (mobile)
+   ========================================= */
+function initReviewsCarousel() {
+  const grid = document.querySelector('.reviews-grid');
+  const dotsContainer = document.querySelector('.reviews-carousel-dots');
+  initSnapCarousel(grid, dotsContainer);
+}
+
+/* =========================================
+   SCROLL TO TOP BUTTON
+   ========================================= */
+function initScrollToTop() {
+  const btn = document.getElementById('scrollToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }

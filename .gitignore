@@ -19,6 +19,10 @@ node_modules/
 dist/
 .cache/
 
+# Docs (local only)
+CLAUDE.md
+readme.md
+
 # Misc
 *.log
 Thumbs.db
