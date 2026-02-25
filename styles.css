@@ -400,7 +400,14 @@ nav.main-nav {
   justify-content: center;
 }
 .hero-logo-fade {
-  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--background) 80%, transparent));
+  z-index: 1;
+  pointer-events: none;
 }
 .hero-logo-inner {
   position: relative;
