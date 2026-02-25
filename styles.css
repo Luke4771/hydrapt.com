@@ -142,7 +142,7 @@ nav.main-nav {
   padding: 0.5rem 0 0.625rem;
 }
 .nav-brand { display: flex; align-items: center; justify-content: space-between; width: 100%; }
-.nav-logo { display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.25rem; }
 .nav-logo img { width: 4rem; height: 4rem; }
 .nav-logo span { font-size: 1.25rem; font-weight: 700; }
 
@@ -538,12 +538,12 @@ nav.main-nav {
   box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
 .feature-step.is-active {
-  border-left-color: transparent;
+  border-left-color: #3b82f6;
   background: rgba(255,255,255,0.97);
   box-shadow: 0 4px 20px rgba(59,130,246,0.12), 0 1px 4px rgba(0,0,0,0.06);
 }
 .dark .feature-step.is-active {
-  border-left-color: transparent;
+  border-left-color: #60a5fa;
   background: rgba(255,255,255,0.09);
   border-color: rgba(255,255,255,0.15);
   box-shadow: 0 6px 22px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
@@ -727,7 +727,7 @@ nav.main-nav {
   border-top: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
   border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
 }
-.dark .reviews-section { background: linear-gradient(200deg, #0d1b2a 0%, #000000 50%); }
+.dark .reviews-section { background: radial-gradient(ellipse at 85% 20%, #0d1b2a 0%, #000000 65%); }
 
 .reviews-bg { position: absolute; inset: 0; pointer-events: none; }
 .reviews-bg .glow1 {
@@ -1277,6 +1277,11 @@ nav.main-nav {
   /* Make navbar non-fixed on mobile */
   nav.main-nav {
     position: relative;
+    background: var(--background);
+    padding: 0;
+  }
+  .dark nav.main-nav {
+    background: #000;
   }
 
   /* Hide dot pattern on mobile */
