@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="de" class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydra Psychology Trainer</title>
+  <meta name="description" content="Training für die psychologische Eignungsdiagnostik">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hydrapt.com/">
+  <meta name="apple-itunes-app" content="app-id=6754796903">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hydra Psychology Trainer">
+  <meta property="og:description" content="Training für die psychologische Eignungsdiagnostik">
+  <meta property="og:url" content="https://hydrapt.com/">
+  <meta property="og:site_name" content="Hydra Psychology Trainer">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://hydrapt.com/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hydra Psychology Trainer">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hydra Psychology Trainer">
+  <meta name="twitter:description" content="Training für die psychologische Eignungsdiagnostik">
+  <meta name="twitter:image" content="https://hydrapt.com/assets/social-preview.png">
+
+  <!-- Fonts (preconnect + stylesheet statt @import für bessere Performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hydra Psychology Trainer",
+      "url": "https://hydrapt.com",
+      "logo": "https://hydrapt.com/assets/logo.svg"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Hydra Psychology Trainer",
+      "operatingSystem": "iOS",
+      "applicationCategory": "EducationalApplication",
+      "description": "Training für die psychologische Eignungsdiagnostik",
+      "downloadUrl": "https://apps.apple.com/at/app/hydra-trainer/id6754796903",
+      "sameAs": ["https://apps.apple.com/at/app/hydra-trainer/id6754796903"],
+      "isAccessibleForFree": true,
+      "offers": [
+        {
+          "@type": "Offer",
+          "url": "https://apps.apple.com/at/app/hydra-trainer/id6754796903",
+          "availability": "https://schema.org/InStock",
+          "price": "0.00",
+          "priceCurrency": "EUR",
+          "category": "https://schema.org/Free"
+        },
+        {
+          "@type": "Offer",
+          "url": "https://apps.apple.com/at/app/hydra-trainer/id6754796903",
+          "availability": "https://schema.org/InStock",
+          "price": "19.99",
+          "priceCurrency": "EUR",
+          "name": "Lifetime Lizenz (In-App-Kauf)"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Für wen ist Hydra Psychology Trainer geeignet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die App richtet sich an Bewerberinnen und Bewerber für Polizei, Militär speziell für Spezialeinheiten jedoch auch alle anderen, die eine psychologische Eignungsdiagnostik durchlaufen müssen, wie leitende und dienstführende Beamte. Die angebotenen Tests finden auch für Aufnahmeverfahren verschiedener Studienrichtungen, wie z.B. Medizin und Psychologie, Anwendung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ist die App kostenlos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Download ist kostenlos. Ausgewählte Module kannst du 24 Stunden testen. Für den vollen Zugriff gibt es eine Lifetime‑Lizenz per In‑App‑Purchase (einmalig € 19,99, kein Abo)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Testbereiche werden trainiert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trainiert werden u. a. Logik & Muster, Rechenaufgaben, Sprachverständnis, Wahrnehmung & Aufmerksamkeit sowie weitere Formate, die sich ähnlich auch im Wiener Testsystem finden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie werden meine Daten gespeichert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alle Daten bleiben lokal auf deinem Gerät. Es gibt keine Accounts, kein Tracking, keine Cloud‑Synchronisation und keine Werbung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Brauche ich eine Internetverbindung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für das Training in der App ist keine Internetverbindung nötig. Systemdienste wie App‑Store‑Updates liegen außerhalb der App."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- SVG Sprite (definiert wiederverwendbare Icons einmalig) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="icon-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  </svg>
+
+  <!-- ============================
+       HEADER / NAV
+       ============================ -->
+  <header>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <div class="nav-inner">
+        <div class="nav-content">
+          <div class="nav-brand">
+            <a href="index.html" class="nav-logo" aria-label="home">
+              <img src="assets/logo.svg" alt="Hydra Psychology Trainer Logo" width="64" height="64">
+              <span>Hydra PT</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Open Menu">
+              <svg class="icon-menu" width="24" height="24"><use href="#icon-menu"/></svg>
+              <svg class="icon-close" width="24" height="24"><use href="#icon-close"/></svg>
+            </button>
+          </div>
+
+          <!-- Desktop nav links -->
+          <div class="nav-desktop-menu">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#privacy">Datenschutz</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#pricing">Preis</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+
+          <!-- Desktop right buttons -->
+          <div class="nav-desktop-right">
+            <button class="btn btn-ghost btn-icon theme-toggle" aria-label="Toggle theme">
+              <svg class="sun" width="24" height="24"><use href="#icon-sun"/></svg>
+              <svg class="moon" width="24" height="24"><use href="#icon-moon"/></svg>
+            </button>
+            <a href="https://instagram.com/hydra.pt" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm btn-icon" aria-label="Instagram">
+              <svg width="16" height="16"><use href="#icon-instagram"/></svg>
+            </a>
+            <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-get-hydra-default">
+              <span>Get Hydra</span>
+            </a>
+            <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm btn-get-hydra-scrolled">
+              <span>Get Hydra</span>
+            </a>
+          </div>
+
+          <!-- Mobile menu panel -->
+          <div class="nav-mobile-panel">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#privacy">Datenschutz</a></li>
+              <li><a href="#reviews">Reviews</a></li>
+              <li><a href="#pricing">Preis</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <div class="nav-mobile-actions">
+              <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="width:100%;text-align:center;">
+                <span>Get Hydra</span>
+              </a>
+              <div class="nav-mobile-bottom">
+                <button class="btn btn-ghost btn-icon theme-toggle" aria-label="Toggle theme">
+                  <svg class="sun" width="24" height="24"><use href="#icon-sun"/></svg>
+                  <svg class="moon" width="24" height="24"><use href="#icon-moon"/></svg>
+                </button>
+                <a href="https://instagram.com/hydra.pt" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-icon" aria-label="Instagram">
+                  <svg width="20" height="20"><use href="#icon-instagram"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================
+       HERO SECTION
+       ============================ -->
+  <main id="home" style="overflow:hidden;">
+    <!-- Background decorative (desktop) -->
+    <div class="hero-bg-decor" aria-hidden="true">
+      <div class="blob1"></div>
+      <div class="blob2"></div>
+      <div class="blob3"></div>
+    </div>
+
+    <section class="hero-section">
+      <div class="hero-inner">
+        <div class="hero-container">
+          <div class="hero-center">
+
+            <!-- Pill -->
+            <div class="anim-hidden fade-blur hero-auto-animate" style="display:flex;justify-content:center;">
+              <a href="#features" class="hero-pill">
+                <span class="hero-pill-text">Psychologisches Training. Ohne Ablenkung.</span>
+                <span class="hero-pill-divider"></span>
+                <span class="hero-pill-arrow">
+                  <span class="hero-pill-arrow-inner">
+                    <span><svg width="24" height="24"><use href="#icon-arrow-right"/></svg></span>
+                    <span><svg width="24" height="24"><use href="#icon-arrow-right"/></svg></span>
+                  </span>
+                </span>
+              </a>
+            </div>
+
+            <!-- Heading (word-by-word reveal) -->
+            <h1 class="hero-heading text-reveal text-balance hero-auto-animate" data-speed="0.08">Psychologisches Training für Polizei und Militär</h1>
+
+            <!-- Subheading -->
+            <p class="hero-sub text-reveal hero-auto-animate text-balance" data-delay="0.35" data-speed="0.12" data-per="line">Entwickelt für Spezialeinheiten, nutzbar für all jene die eine psychologische Eignungsdiagnostik durchlaufen müssen. So nah an der Realität wie nie zuvor. Sofort trainierbar am iPhone.</p>
+
+            <!-- App Store Button -->
+            <div class="hero-appstore anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.6s;">
+              <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" aria-label="Open Hydra Trainer on the App Store">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="162" height="48" style="height:58px;width:auto;">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero mockup image instead of logo -->
+        <div class="hero-logo-area anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.75s;">
+          <div class="hero-logo-fade" aria-hidden="true"></div>
+          <div class="hero-logo-inner">
+            <img src="assets/hero-mockup.svg" alt="Hydra Hero Mockup" width="900" height="900">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         FEATURES SECTION
+         ============================ -->
+    <section id="features" class="features-section">
+      <div class="features-container">
+
+        <!-- Header -->
+        <div class="features-header stagger-children">
+          <span class="section-badge anim-hidden fade-up">Features</span>
+          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Trainiere wie im echten Test</h2>
+          <p class="anim-hidden fade-up">Hydra Trainer simuliert etablierte psychologische Eignungstests, die in Auswahlverfahren eingesetzt werden. Entwickle logisches Denken, Konzentration und Stressresistenz mit realistischen Testumgebungen.</p>
+        </div>
+
+        <!-- Feature Rows -->
+        <div class="features-rows">
+
+          <!-- Feature 1: Nah an der Realität (image right) -->
+          <div class="feature-row image-right">
+            <div class="feature-text anim-hidden slide-left">
+              <h3>Nah an der Realität!</h3>
+              <p>Trainiere Logik &amp; Muster, Rechenaufgaben, Sprachverständnis, Wahrnehmung &amp; Aufmerksamkeit und viele weitere Testformate die in Eignungstests Anwendung finden.</p>
+            </div>
+            <div class="feature-mockup-col">
+              <div class="mockup-glow">
+                <div class="anim-hidden scale-up mockup-glow-circle"></div>
+              </div>
+              <div class="phone-mockup-wrapper anim-hidden slide-right">
+                <div class="phone-mockup">
+                  <div class="screen">
+                    <img src="assets/screens/training-overview.webp" alt="Hydra Trainingsübersicht" loading="lazy">
+                  </div>
+                  <div class="frame">
+                    <img src="assets/iphone-frame.svg" alt="" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2: Adaptives Training (image left) -->
+          <div class="feature-row image-left">
+            <div class="feature-text anim-hidden slide-right">
+              <h3>Adaptives Training</h3>
+              <p>Die Schwierigkeit steigt progressiv basierend auf deiner Leistung und Reaktionszeit. Baue Fähigkeiten durch gezielte Herausforderung auf.</p>
+            </div>
+            <div class="feature-mockup-col">
+              <div class="mockup-glow">
+                <div class="anim-hidden scale-up mockup-glow-circle"></div>
+              </div>
+              <div class="phone-mockup-wrapper anim-hidden slide-left">
+                <div class="phone-mockup">
+                  <div class="screen">
+                    <img src="assets/screens/anagram-test.webp" alt="Hydra Anagramm-Test" loading="lazy">
+                  </div>
+                  <div class="frame">
+                    <img src="assets/iphone-frame.svg" alt="" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 3: Scoreboard (image right) -->
+          <div class="feature-row image-right">
+            <div class="feature-text anim-hidden slide-left">
+              <h3>Scoreboard</h3>
+              <p>Verfolge deine Fortschritte am Scoreboard und beobachte wie Wiederholung deine Ergebnisse stetig verbessert.</p>
+            </div>
+            <div class="feature-mockup-col">
+              <div class="mockup-glow">
+                <div class="anim-hidden scale-up mockup-glow-circle"></div>
+              </div>
+              <div class="phone-mockup-wrapper anim-hidden slide-right">
+                <div class="phone-mockup">
+                  <div class="screen">
+                    <img src="assets/screens/scoreboard.webp" alt="Hydra Scoreboard" loading="lazy">
+                  </div>
+                  <div class="frame">
+                    <img src="assets/iphone-frame.svg" alt="" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 4: Aktuelle Tests (image left) -->
+          <div class="feature-row image-left">
+            <div class="feature-text anim-hidden slide-right">
+              <h3>Profitiere von aktuellen Tests</h3>
+              <p>Hydra Psychology Trainer wird ständig am neuesten Stand der psychologischen Eignungsdiagnostik gehalten, sodass du immer bestmöglich auf dein Auswahlverfahren vorbereitet bist.</p>
+            </div>
+            <div class="feature-mockup-col">
+              <div class="mockup-glow">
+                <div class="anim-hidden scale-up mockup-glow-circle"></div>
+              </div>
+              <div class="phone-mockup-wrapper anim-hidden slide-left">
+                <div class="phone-mockup">
+                  <div class="screen">
+                    <img src="assets/screens/memory-test.webp" alt="Hydra Memory-Test" loading="lazy">
+                  </div>
+                  <div class="frame">
+                    <img src="assets/iphone-frame.svg" alt="" loading="lazy">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         PRIVACY SECTION
+         ============================ -->
+    <section id="privacy" class="privacy-section">
+      <div class="privacy-container">
+
+        <div class="privacy-header stagger-children">
+          <span class="section-badge anim-hidden fade-up">Privacy</span>
+          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Datenschutz von Anfang an</h2>
+          <p class="anim-hidden fade-up">Entwickelt mit radikaler Einfachheit und vollständigem Datenschutz im Hinterkopf.</p>
+        </div>
+
+        <div class="privacy-cards anim-hidden fade-up stagger-children" style="transition-delay:0.3s;">
+
+          <!-- Card 1 -->
+          <div class="privacy-card anim-hidden fade-up">
+            <div class="privacy-card-header">
+              <div class="privacy-card-icon-wrap">
+                <div class="privacy-card-decorator">
+                  <div class="privacy-card-icon-box">
+                    <svg width="24" height="24"><use href="#icon-bolt"/></svg>
+                  </div>
+                </div>
+              </div>
+              <h3>Sofort loslegen</h3>
+            </div>
+            <div class="privacy-card-body">
+              <p>Keine Anmeldung, keine persönlichen Daten.<br>Download und starte<br>in Sekunden.</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="privacy-card anim-hidden fade-up">
+            <div class="privacy-card-header">
+              <div class="privacy-card-icon-wrap">
+                <div class="privacy-card-decorator">
+                  <div class="privacy-card-icon-box">
+                    <svg width="24" height="24"><use href="#icon-shield"/></svg>
+                  </div>
+                </div>
+              </div>
+              <h3>Keine Datenerfassung</h3>
+            </div>
+            <div class="privacy-card-body">
+              <p>Keine Analyse. Kein Tracking.<br>Keine Cloud.<br>Keine Werbung.</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="privacy-card anim-hidden fade-up">
+            <div class="privacy-card-header">
+              <div class="privacy-card-icon-wrap">
+                <div class="privacy-card-decorator">
+                  <div class="privacy-card-icon-box">
+                    <svg width="24" height="24"><use href="#icon-phone"/></svg>
+                  </div>
+                </div>
+              </div>
+              <h3>Lokale Speicherung</h3>
+            </div>
+            <div class="privacy-card-body">
+              <p>Auf dem Gerät mit Core Data -<br>alles bleibt<br>auf deinem Handy.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="privacy-link anim-hidden fade-up">
+          Unsere <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> im Detail.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         REVIEWS SECTION
+         ============================ -->
+    <section id="reviews" class="reviews-section">
+      <div class="reviews-bg" aria-hidden="true">
+        <div class="glow1"></div>
+        <div class="glow2"></div>
+      </div>
+      <div class="reviews-container">
+
+        <div class="reviews-header stagger-children">
+          <span class="section-badge anim-hidden fade-up">Reviews &amp; Ratings</span>
+          <div style="display:inline-flex;justify-content:center;position:relative;">
+            <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Stimmen aus der Praxis</h2>
+          </div>
+          <p class="anim-hidden fade-up">Vier Stimmen. Eine klare Tendenz: fokussiertes Training bringt messbare Vorteile.</p>
+          <div id="appstore-rating" class="reviews-rating-badge anim-hidden fade-up" style="display:none;"></div>
+        </div>
+
+        <div class="reviews-grid stagger-children">
+
+          <!-- Review 1 -->
+          <article class="review-card anim-hidden fade-up">
+            <span class="glow-spot" aria-hidden="true"></span>
+            <div class="review-stars">
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+            </div>
+            <h3>Sehr nahe am Auswahlverfahren</h3>
+            <p class="review-text">„Ich habe mit der App mehrere Wochen vor dem Eignungstest geübt. Viele Denkaufgaben waren vom Aufbau her sehr ähnlich. Für mich ein klarer Vorteil gegenüber unstrukturiertem Lernen."</p>
+            <p class="reviewer">Bewerber EKO Cobra</p>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card anim-hidden fade-up">
+            <span class="glow-spot" aria-hidden="true"></span>
+            <div class="review-stars">
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+            </div>
+            <h3>Gut geeignet, um mentale Belastung zu simulieren.</h3>
+            <p class="review-text">„Zeitdruck, Konzentration und Genauigkeit – genau das, was wir von Bewerbern erwarten. Die App eignet sich gut, um zu zeigen, dass regelmäßiges Training einen Unterschied macht."</p>
+            <p class="reviewer">Einsatztrainer Polizei</p>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card anim-hidden fade-up">
+            <span class="glow-spot" aria-hidden="true"></span>
+            <div class="review-stars">
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+            </div>
+            <h3>Lässt sich problemlos in den Dienstalltag integrieren.</h3>
+            <p class="review-text">„Kurze Trainingsblöcke nach der Schicht oder in Pausen sind ideal. 20 Minuten fokussiert mit der App sind sinnvoller, als eine Stunde ziellos Aufgaben im Internet zu suchen."</p>
+            <p class="reviewer">Polizeibeamter, Vorbereitung auf leitende Laufbahn</p>
+          </article>
+
+          <!-- Review 4 -->
+          <article class="review-card anim-hidden fade-up">
+            <span class="glow-spot" aria-hidden="true"></span>
+            <div class="review-stars">
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+              <svg><use href="#icon-star"/></svg>
+            </div>
+            <h3>Hilft, Stärken und Schwächen klar zu erkennen.</h3>
+            <p class="review-text">„Man sieht schnell, welche Aufgabentypen funktionieren und wo man noch Zeit verliert. Das schafft Sicherheit für das eigentliche Auswahlverfahren."</p>
+            <p class="reviewer">Polizeibeamter, Vorbereitung auf dienstführende Laufbahn</p>
+          </article>
+
+        </div>
+
+        <div class="reviews-cta anim-hidden fade-up">
+          <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+            Jetzt starten
+            <svg width="16" height="16"><use href="#icon-arrow-right"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================
+         PRICING SECTION
+         ============================ -->
+    <section id="pricing" class="pricing-section">
+      <div class="pricing-container">
+
+        <div class="pricing-header stagger-children">
+          <span class="section-badge anim-hidden fade-up">Preisgestaltung</span>
+          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Einmal zahlen. Für immer nutzen.</h2>
+          <p class="anim-hidden fade-up">Lade Hydra Trainer kostenlos herunter und entscheide dann in der App, ob du die Lifetime-Lizenz aktivieren möchtest.</p>
+        </div>
+
+        <div class="pricing-grid stagger-children">
+
+          <!-- Free card -->
+          <div class="anim-hidden fade-up">
+            <div class="pricing-card">
+              <div class="pricing-card-top">
+                <div>
+                  <p class="label">Kostenloser Download</p>
+                  <h3>App starten</h3>
+                </div>
+                <span class="pricing-badge pricing-badge-free">Gratis</span>
+              </div>
+              <p class="pricing-card-desc">Die App ist kostenlos im App Store verfügbar. Du kannst sie sofort testen.</p>
+              <ul class="pricing-features">
+                <li>
+                  <svg width="16" height="16"><use href="#icon-check"/></svg>
+                  <span>Teste ausgewählte Module für 24 Stunden</span>
+                </li>
+                <li>
+                  <svg width="16" height="16"><use href="#icon-check"/></svg>
+                  <span>Kein Konto, keine Registrierung</span>
+                </li>
+                <li>
+                  <svg width="16" height="16"><use href="#icon-check"/></svg>
+                  <span>Download in Sekunden</span>
+                </li>
+              </ul>
+              <div class="pricing-appstore">
+                <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" aria-label="Open Hydra Trainer on the App Store">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="162" height="48" style="height:58px;width:auto;">
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lifetime card -->
+          <div class="anim-hidden fade-up">
+            <div class="pricing-card-highlight">
+              <div class="pricing-card">
+                <div class="pricing-card-top">
+                  <div>
+                    <p class="label">Lifetime-Lizenz</p>
+                    <h3>Einmalzahlung</h3>
+                    <p class="price">€ 19.99</p>
+                  </div>
+                  <span class="pricing-badge pricing-badge-lifetime">
+                    <svg width="12" height="12"><use href="#icon-sparkle"/></svg>
+                    Dauerhaft
+                  </span>
+                </div>
+                <p class="pricing-card-desc">Einmalig € 19.99 per In-App-Purchase – danach dauerhaft nutzen.</p>
+                <ul class="pricing-features">
+                  <li>
+                    <svg width="16" height="16"><use href="#icon-check"/></svg>
+                    <span>Einmalzahlung per In-App-Kauf</span>
+                  </li>
+                  <li>
+                    <svg width="16" height="16"><use href="#icon-check"/></svg>
+                    <span>Keine Abo-Falle, keine versteckten Kosten</span>
+                  </li>
+                  <li>
+                    <svg width="16" height="16"><use href="#icon-check"/></svg>
+                    <span>Lebenslange Nutzung auf deinem Gerät</span>
+                  </li>
+                </ul>
+                <div class="pricing-note">Kein Abo. Keine versteckten Kosten. Volle Kontrolle.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FAQ SECTION
+         ============================ -->
+    <section id="faq" class="faq-section">
+      <div class="faq-container">
+
+        <div class="faq-header stagger-children">
+          <span class="section-badge anim-hidden fade-up">FAQ</span>
+          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Häufige Fragen</h2>
+          <p class="anim-hidden fade-up">Die wichtigsten Antworten rund um Hydra Psychology Trainer.</p>
+        </div>
+
+        <div class="faq-items">
+          <div class="anim-hidden slide-left-sm">
+            <details class="faq-item">
+              <summary>Für wen ist Hydra Psychology Trainer geeignet?</summary>
+              <p>Die App richtet sich an Bewerberinnen und Bewerber für Polizei, Militär speziell für Spezialeinheiten jedoch auch alle anderen, die eine psychologische Eignungsdiagnostik durchlaufen müssen, wie leitende und dienstführende Beamte. Die angebotenen Tests finden auch für Aufnahmeverfahren verschiedener Studienrichtungen, wie z.B. Medizin und Psychologie, Anwendung.</p>
+            </details>
+          </div>
+          <div class="anim-hidden slide-right-sm">
+            <details class="faq-item">
+              <summary>Ist die App kostenlos?</summary>
+              <p>Der Download ist kostenlos. Ausgewählte Module kannst du 24 Stunden testen. Für den vollen Zugriff gibt es eine Lifetime‑Lizenz per In‑App‑Purchase (einmalig € 19,99, kein Abo).</p>
+            </details>
+          </div>
+          <div class="anim-hidden slide-left-sm">
+            <details class="faq-item">
+              <summary>Welche Testbereiche werden trainiert?</summary>
+              <p>Trainiert werden u. a. Logik &amp; Muster, Rechenaufgaben, Sprachverständnis, Wahrnehmung &amp; Aufmerksamkeit sowie weitere Formate, die sich ähnlich auch im Wiener Testsystem finden. Das Wiener Testsystem ist eines der international etablierten und häufig genutzten computergestützten Testsysteme.</p>
+            </details>
+          </div>
+          <div class="anim-hidden slide-right-sm">
+            <details class="faq-item">
+              <summary>Wie werden meine Daten gespeichert?</summary>
+              <p>Alle Daten bleiben lokal auf deinem Gerät. Es gibt keine Accounts, kein Tracking, keine Cloud‑Synchronisation und keine Werbung.</p>
+            </details>
+          </div>
+          <div class="anim-hidden slide-left-sm">
+            <details class="faq-item">
+              <summary>Brauche ich eine Internetverbindung?</summary>
+              <p>Für das Training in der App ist keine Internetverbindung nötig. Es kann im Flugzeug oder im Ausland wenn kein Datenpaket vorhanden ist trainiert werden. Systemdienste wie App‑Store‑Updates liegen außerhalb der App.</p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer id="support" class="footer-section">
+    <div class="footer-container">
+      <div class="footer-content">
+        <span>© 2025 hydrapt.com. All rights reserved.</span>
+        <span class="footer-dot">•</span>
+        <a href="impress.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+        <span class="footer-dot">•</span>
+        <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+        <span class="footer-dot">•</span>
+        <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer">App Store</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
+</body>
+</html>
