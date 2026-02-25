@@ -151,10 +151,19 @@ function initScrollAnimations() {
   const staggerObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        const children = entry.target.querySelectorAll('.anim-hidden');
         // Add anim-visible to all children when container enters view
-        entry.target.querySelectorAll('.anim-hidden').forEach(child => {
+        children.forEach(child => {
           child.classList.add('anim-visible');
         });
+        // Remove anim-hidden after animations finish so stagger
+        // transition-delays no longer affect interactive transitions
+        const maxDelay = children.length * 0.3;
+        setTimeout(() => {
+          children.forEach(child => {
+            child.classList.remove('anim-hidden');
+          });
+        }, (maxDelay + 0.8) * 1000);
         staggerObserver.unobserve(entry.target);
       }
     });

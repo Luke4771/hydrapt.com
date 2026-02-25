@@ -302,7 +302,7 @@ nav.main-nav {
   background-image: radial-gradient(circle, rgba(255,255,255,0.20) 1.5px, transparent 1.5px);
 }
 
-.hero-inner { position: relative; padding-top: 7rem; }
+.hero-inner { position: relative; padding-top: 8rem; }
 .hero-container { margin: 0 auto; max-width: 80rem; padding: 0 1.5rem; }
 .hero-center { text-align: center; margin: 0 auto; }
 
@@ -1023,7 +1023,7 @@ nav.main-nav {
   .phone-mockup-wrapper { max-width: 280px; }
 }
 @media (min-width: 768px) {
-  .hero-inner { padding-top: 8rem; }
+  .hero-inner { padding-top: 9rem; }
   .hero-heading { font-size: 4.05rem; margin-top: 0.75rem; }
   .hero-logo-area { margin-top: -2.5rem; }
   /* bump size */
