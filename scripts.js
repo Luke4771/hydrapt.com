@@ -85,6 +85,13 @@ function initNavScroll() {
 /* =========================================
    MOBILE MENU
    ========================================= */
+function closeMobileMenu() {
+  const btn = document.querySelector('.mobile-menu-btn');
+  const panel = document.querySelector('.nav-mobile-panel');
+  if (btn) btn.classList.remove('active');
+  if (panel) panel.classList.remove('open');
+}
+
 function initMobileMenu() {
   const btn = document.querySelector('.mobile-menu-btn');
   const panel = document.querySelector('.nav-mobile-panel');
@@ -93,19 +100,14 @@ function initMobileMenu() {
   btn.addEventListener('click', () => {
     btn.classList.toggle('active');
     panel.classList.toggle('open');
-    // Update nav data-state for proper styling
     const nav = document.querySelector('nav.main-nav');
     if (nav) {
       nav.dataset.state = panel.classList.contains('open') ? 'active' : '';
     }
   });
 
-  // Close on link click
   panel.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      btn.classList.remove('active');
-      panel.classList.remove('open');
-    });
+    link.addEventListener('click', closeMobileMenu);
   });
 }
 
@@ -121,13 +123,7 @@ function initSmoothScroll() {
       const target = document.getElementById(href.substring(1));
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile menu if open
-        const btn = document.querySelector('.mobile-menu-btn');
-        const panel = document.querySelector('.nav-mobile-panel');
-        if (btn && panel) {
-          btn.classList.remove('active');
-          panel.classList.remove('open');
-        }
+        closeMobileMenu();
       }
     });
   });
@@ -197,45 +193,26 @@ function initScrollAnimations() {
 function initTextReveal() {
   document.querySelectorAll('.text-reveal').forEach(el => {
     const text = el.textContent.trim();
-    const per = el.dataset.per || 'word'; // 'word' or 'line'
+    const per = el.dataset.per || 'word';
     const delay = parseFloat(el.dataset.delay || '0');
     const speed = parseFloat(el.dataset.speed || '0.3');
 
     el.innerHTML = '';
 
-    if (per === 'line') {
-      // For line-based: split on sentence boundaries or just treat whole text as one segment  
-      const lines = text.split(/(?<=\.)\s+/);
-      lines.forEach((line, i) => {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = line;
-        span.style.transitionDelay = `${delay + i * speed}s`;
-        el.appendChild(span);
-        if (i < lines.length - 1) {
-          el.appendChild(document.createTextNode(' '));
-        }
-      });
-    } else {
-      // Word-by-word
-      const words = text.split(/\s+/);
-      words.forEach((word, i) => {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = word;
-        span.style.transitionDelay = `${delay + i * speed}s`;
-        el.appendChild(span);
-        if (i < words.length - 1) {
-          el.appendChild(document.createTextNode(' '));
-        }
-      });
-    }
+    const segments = per === 'line' ? text.split(/(?<=\.)\s+/) : text.split(/\s+/);
+    segments.forEach((seg, i) => {
+      const span = document.createElement('span');
+      span.className = 'word';
+      span.textContent = seg;
+      span.style.transitionDelay = `${delay + i * speed}s`;
+      el.appendChild(span);
+      if (i < segments.length - 1) {
+        el.appendChild(document.createTextNode(' '));
+      }
+    });
 
-    // For hero text, auto-animate
     if (el.classList.contains('hero-auto-animate')) {
-      setTimeout(() => {
-        el.classList.add('anim-visible');
-      }, 100);
+      setTimeout(() => el.classList.add('anim-visible'), 100);
     }
   });
 }
@@ -290,6 +267,19 @@ function initFaqAnimations() {
 }
 
 /* =========================================
+   SHARED: Transition a phone screen image
+   ========================================= */
+function transitionScreen(screen, src) {
+  if (!src || src === screen.getAttribute('src')) return;
+  screen.style.opacity = '0';
+  const reveal = () => { screen.style.opacity = '1'; };
+  screen.addEventListener('load', reveal, { once: true });
+  screen.addEventListener('error', reveal, { once: true });
+  screen.src = src;
+  if (screen.complete) reveal();
+}
+
+/* =========================================
    FEATURE CLICK – Card-driven Screen Swap
    ========================================= */
 function initFeatureScroll() {
@@ -299,50 +289,19 @@ function initFeatureScroll() {
 
   screen.loading = 'eager';
   screen.decoding = 'async';
-  let current = screen.getAttribute('src') || '';
-
-  function setScreen(src) {
-    if (!src || src === current) return;
-
-    screen.style.opacity = '0';
-
-    const reveal = () => {
-      screen.style.opacity = '1';
-    };
-
-    screen.addEventListener('load', reveal, { once: true });
-    screen.addEventListener('error', reveal, { once: true });
-    screen.src = src;
-    current = src;
-
-    // Fallback for cached images where load may not fire
-    if (screen.complete) {
-      reveal();
-    }
-  }
 
   function activateStep(step) {
-    const src = step.dataset.screen;
-
-    // Highlight active step
-    steps.forEach((s) => s.classList.remove('is-active'));
+    steps.forEach(s => s.classList.remove('is-active'));
     step.classList.add('is-active');
-
-    setScreen(src);
+    transitionScreen(screen, step.dataset.screen);
   }
 
-  // Click handler for each card
-  steps.forEach((step) => {
+  steps.forEach(step => {
     step.addEventListener('click', () => activateStep(step));
   });
 
-  // Set first step active on load (don't call setScreen – image is already visible)
   if (steps[0]) {
     steps[0].classList.add('is-active');
-    const firstSrc = steps[0].dataset.screen;
-    if (firstSrc) {
-      current = firstSrc;
-    }
   }
 }
 
@@ -416,6 +375,8 @@ function initSnapCarousel(scrollContainer, dotsContainer, onChange) {
    FEATURES CAROUSEL (mobile)
    ========================================= */
 function initFeaturesCarousel() {
+  if (!window.matchMedia('(max-width: 767px)').matches) return;
+
   const stepsCol = document.querySelector('.features-steps-col');
   const dotsContainer = document.querySelector('.features-carousel-dots');
   const screen = document.querySelector('.phone-mockup .screen .feature-screen');
@@ -424,19 +385,9 @@ function initFeaturesCarousel() {
   if (!stepsCol || !dotsContainer || !screen || !steps.length) return;
 
   initSnapCarousel(stepsCol, dotsContainer, (idx, item) => {
-    // Update active step and phone screen
     steps.forEach(s => s.classList.remove('is-active'));
     item.classList.add('is-active');
-
-    const src = item.dataset.screen;
-    if (src && src !== screen.src) {
-      screen.style.opacity = '0';
-      const reveal = () => { screen.style.opacity = '1'; };
-      screen.addEventListener('load', reveal, { once: true });
-      screen.addEventListener('error', reveal, { once: true });
-      screen.src = src;
-      if (screen.complete) reveal();
-    }
+    transitionScreen(screen, item.dataset.screen);
   });
 }
 
