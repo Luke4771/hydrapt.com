@@ -286,7 +286,7 @@ nav.main-nav {
   background: radial-gradient(50% 50% at 50% 50%, hsla(0,0%,85%,.04) 0, hsla(0,0%,45%,.02) 80%, transparent 100%);
 }
 
-.hero-inner { position: relative; padding-top: 5rem; }
+.hero-inner { position: relative; padding-top: 3.5rem; }
 .hero-container { margin: 0 auto; max-width: 80rem; padding: 0 1.5rem; }
 .hero-center { text-align: center; margin: 0 auto; }
 
@@ -334,7 +334,7 @@ nav.main-nav {
 
 /* Hero heading */
 .hero-heading {
-  margin-top: 2rem;
+  margin-top: 0.75rem;
   font-size: clamp(2rem, 8.5vw, 3.375rem);
   font-weight: 700;
   line-height: 1.15;
@@ -369,7 +369,7 @@ nav.main-nav {
 .hero-appstore {
   position: relative;
   z-index: 20;
-  margin-top: 42px;
+  margin-top: 28px;
 }
 .hero-appstore img { height: 58px; width: auto; margin: 0 auto; }
 
@@ -461,52 +461,88 @@ nav.main-nav {
 .features-header p {
   font-size: 1.125rem; color: var(--muted-foreground);
 }
-.features-rows { display: flex; flex-direction: column; gap: 5rem; }
 
-/* Feature Row */
-.feature-row {
+/* Sticky scroll layout */
+.features-sticky-wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-.feature-text {
-  display: flex; flex-direction: column; gap: 1.5rem; text-align: center;
-}
-.feature-text h3 {
-  font-size: 2.25rem; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance;
-}
-.feature-text p {
-  font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.75;
+  gap: 3rem;
 }
 
-/* Phone Mockup */
-.feature-mockup-col {
-  display: flex; align-items: center; justify-content: center;
-  width: 100%; position: relative;
+/* Phone column (sticky on desktop) */
+.features-phone-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-.mockup-glow {
-  position: absolute; inset: 0; z-index: 0;
-  pointer-events: none; display: flex; align-items: center; justify-content: center;
-  overflow: visible;
+.features-phone-sticky {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.mockup-glow-circle {
-  width: 500px; height: 500px; border-radius: 50%;
-  filter: blur(1px);
-  opacity: 0.8;
-  background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0.15) 50%, rgba(59,130,246,0.05) 75%, transparent 90%);
+
+/* Steps column */
+.features-steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
-.dark .mockup-glow-circle {
-  opacity: 0.9;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.03) 70%, transparent 85%);
+
+/* Individual step card */
+.feature-step {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 2rem;
+  transition: all 0.4s ease;
 }
+.dark .feature-step {
+  background: rgba(18,18,18,0.7);
+}
+.feature-step.is-active {
+  border-color: rgba(59,130,246,0.4);
+  box-shadow: 0 8px 32px rgba(59,130,246,0.12);
+}
+.dark .feature-step.is-active {
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px rgba(255,255,255,0.06);
+}
+.feature-step-num {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(59,130,246,0.7);
+  margin-bottom: 0.75rem;
+}
+.dark .feature-step-num {
+  color: rgba(255,255,255,0.4);
+}
+.feature-step h3 {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+  text-wrap: balance;
+}
+.feature-step p {
+  font-size: 1.0625rem; color: var(--muted-foreground); line-height: 1.75;
+}
+.feature-screen {
+  transition: opacity 0.3s ease;
+}
+
+/* Phone Mockup (shared styles) */
 .phone-mockup-wrapper {
   position: relative; z-index: 10;
-  width: 100%; max-width: 300px; margin: 0 auto;
+  width: 100%; max-width: 280px; margin: 0 auto;
 }
 .phone-mockup {
   position: relative;
-  width: 280px;
+  width: 260px;
   aspect-ratio: 490/1000;
   margin: 0 auto;
 }
@@ -520,6 +556,7 @@ nav.main-nav {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: 50% 15%;
+  transition: opacity 0.5s ease;
 }
 .phone-mockup .frame {
   position: absolute; inset: 0;
@@ -528,6 +565,21 @@ nav.main-nav {
 .phone-mockup .frame img {
   width: 100%; height: 100%;
   object-fit: contain;
+}
+.mockup-glow {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none; display: flex; align-items: center; justify-content: center;
+  overflow: visible;
+}
+.mockup-glow-circle {
+  width: 400px; height: 400px; border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.8;
+  background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0.15) 50%, rgba(59,130,246,0.05) 75%, transparent 90%);
+}
+.dark .mockup-glow-circle {
+  opacity: 0.9;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.03) 70%, transparent 85%);
 }
 
 /* ============================================
@@ -838,8 +890,8 @@ nav.main-nav {
 }
 .faq-item p {
   margin-top: 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.625;
+  font-size: 1.0625rem;
+  line-height: 1.7;
   color: var(--muted-foreground);
 }
 
@@ -889,32 +941,39 @@ nav.main-nav {
   /* increased 50% */
   .hero-logo-inner { max-width: 42rem; }
   .hero-logo-area { margin-top: -2rem; }
-  .phone-mockup { width: 320px; }
-  .phone-mockup-wrapper { max-width: 320px; }
+  .phone-mockup { width: 280px; }
+  .phone-mockup-wrapper { max-width: 280px; }
 }
 @media (min-width: 768px) {
-  .hero-inner { padding-top: 9rem; }
-  .hero-heading { font-size: 4.05rem; }
+  .hero-inner { padding-top: 6rem; }
+  .hero-heading { font-size: 4.05rem; margin-top: 0.75rem; }
   .hero-logo-area { margin-top: -2.5rem; }
   /* bump size */
   .hero-logo-inner { max-width: 54rem; }
   .features-section { padding: 10rem 0 7rem; }
-  .features-header { margin-bottom: 7rem; }
+  .features-header { margin-bottom: 5rem; }
   .features-header h2 { font-size: 4.375rem; }
-  .features-rows { gap: 8rem; }
-  .feature-row {
+  /* Sticky layout: side-by-side on tablet+ */
+  .features-sticky-wrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 2rem;
+    gap: 3rem;
+    align-items: start;
   }
-  .feature-row .feature-text { text-align: left; }
-  .feature-row.image-left .feature-text { text-align: left; order: 2; }
-  .feature-row.image-left .feature-mockup-col { order: 1; }
-  .feature-row.image-right .feature-text { text-align: right; order: 1; }
-  .feature-row.image-right .feature-mockup-col { order: 2; }
-  .phone-mockup { width: 360px; }
-  .phone-mockup-wrapper { max-width: 360px; }
+  .features-phone-col {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    height: fit-content;
+    z-index: 5;
+  }
+  .features-steps-col {
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+  .feature-step h3 { font-size: 2rem; }
+  .phone-mockup { width: 320px; }
+  .phone-mockup-wrapper { max-width: 320px; }
   .privacy-section { padding: 3rem 0 6rem; scroll-margin-top: 7rem; }
   .privacy-header { margin-bottom: 5rem; }
   .privacy-header h2 { font-size: 4.375rem; }
@@ -941,20 +1000,23 @@ nav.main-nav {
   .mobile-menu-btn { display: none; }
   .nav-desktop-menu { display: block; }
   .nav-desktop-right { display: flex; }
-  .hero-heading { margin-top: 4rem; }
+  .hero-heading { margin-top: 1.5rem; }
   /* increased max-width, remove pre-scaling so final size is ~1.5x original large */
   .hero-logo-inner { max-width: 63rem; }
-  .feature-row { gap: 3rem; }
-  .feature-text h3 { font-size: 3rem; }
+  .feature-step h3 { font-size: 2.25rem; }
+  .features-sticky-wrap { gap: 4rem; }
+  .features-steps-col { gap: 2.5rem; }
   .hero-bg-decor { display: block; }
   .hero-sub { font-size: 1.25rem; }
   .features-header p, .privacy-header p, .reviews-header p, .pricing-header p, .faq-header p { font-size: 1.25rem; }
-  .phone-mockup { width: 360px; }
-  .phone-mockup-wrapper { max-width: 380px; }
+  .phone-mockup { width: 340px; }
+  .phone-mockup-wrapper { max-width: 360px; }
 }
 @media (min-width: 1280px) {
   .hero-heading { font-size: 4.725rem; }
-  .feature-row { gap: 4rem; }
+  .features-sticky-wrap { gap: 5rem; }
+  .phone-mockup { width: 380px; }
+  .phone-mockup-wrapper { max-width: 400px; }
   .reviews-grid { grid-template-columns: repeat(4, 1fr); }
   .pricing-grid { grid-template-columns: 1fr 1fr; }
 }

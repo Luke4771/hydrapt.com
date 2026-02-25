@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Word-by-word text reveal ----
   initTextReveal();
 
+  // ---- Feature scroll screen switching ----
+  initFeatureScroll();
+
   // ---- Smooth FAQ toggle ----
   initFaqAnimations();
 
@@ -280,6 +283,63 @@ function initFaqAnimations() {
       }
     });
   });
+}
+
+/* =========================================
+   FEATURE SCROLL – Sticky Phone Screen Swap
+   ========================================= */
+function initFeatureScroll() {
+  const screen = document.querySelector('.feature-screen');
+  const steps = document.querySelectorAll('.feature-step');
+  if (!screen || !steps.length) return;
+
+  let current = '';
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const step = entry.target;
+          const src = step.dataset.screen;
+
+          // Highlight active step
+          steps.forEach((s) => s.classList.remove('is-active'));
+          step.classList.add('is-active');
+
+          // Swap screen image with crossfade
+          if (src && src !== current) {
+            screen.style.opacity = '0';
+            screen.addEventListener(
+              'transitionend',
+              () => {
+                screen.src = src;
+                screen.style.opacity = '1';
+              },
+              { once: true }
+            );
+            current = src;
+          }
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: '-35% 0px -35% 0px',
+      threshold: 0,
+    }
+  );
+
+  steps.forEach((step) => observer.observe(step));
+
+  // Set first step active on load
+  if (steps[0]) {
+    steps[0].classList.add('is-active');
+    const firstSrc = steps[0].dataset.screen;
+    if (firstSrc) {
+      screen.src = firstSrc;
+      current = firstSrc;
+    }
+  }
 }
 
 /* =========================================
