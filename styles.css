@@ -1326,6 +1326,7 @@ nav.main-nav {
   .pricing-card { padding: 1.5rem; }
   .pricing-card-top h3 { font-size: 1.5rem; }
   .pricing-card-top .price { font-size: 1.75rem; }
+  .pricing-appstore { display: flex; justify-content: center; }
 
   .faq-section { padding: 3.5rem 0; }
   .faq-container { padding: 0 1rem; }
