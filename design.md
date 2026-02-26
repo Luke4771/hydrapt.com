@@ -212,6 +212,12 @@ Color: var(--muted-foreground)
 - Animierte Öffnung via JavaScript (Height + Opacity Transition)
 - Alternierendes Slide-In (links/rechts via `slide-left-sm` / `slide-right-sm`)
 
+### 5.10 Footer
+
+- Gemeinsame Struktur mit `footer-section`, `footer-container`, `footer-content`
+- Enthält Instagram-Link, Copyright-Text und Links zu Impressum/Datenschutz/App Store
+- Wird auf den Startseiten (`index.html`, `en/index.html`) sowie den Legal-Seiten (`impress.html`, `privacy-policy.html`, `en/impress.html`, `en/privacy-policy.html`) verwendet
+
 ---
 
 ## 6. Animationssystem
