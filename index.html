@@ -146,6 +146,11 @@
     <symbol id="icon-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
     <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
     <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 10H17V8a5 5 0 0 0-10 0v2h-.5A2.5 2.5 0 0 0 4 12.5v6A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5v-6A2.5 2.5 0 0 0 17.5 10Zm-8.5 0V8a3 3 0 0 1 6 0v2Z"/><path fill="currentColor" d="M12 14a1.25 1.25 0 0 1 .75 2.25V18a.75.75 0 0 1-1.5 0v-1.75A1.25 1.25 0 0 1 12 14Z"/></symbol>
+    <symbol id="icon-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 15-5v12L3 14z"/><path d="M11.6 16.8a3 3 0 1 1-5.8 1.6"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.25"/><rect x="14" y="3" width="7" height="7" rx="1.25"/><rect x="3" y="14" width="7" height="7" rx="1.25"/><rect x="14" y="14" width="7" height="7" rx="1.25"/></symbol>
+    <symbol id="icon-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5 13.5 4H6v7.5L12.5 18a2 2 0 0 0 2.83 0l4.67-4.67a2 2 0 0 0 0-2.83Z"/><circle cx="8.75" cy="8.75" r="1.1"/></symbol>
+    <symbol id="icon-help-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.75-2.5 2-2.5 3.75"/><path d="M12 16.8h.01"/></symbol>
     <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
     <symbol id="icon-flag-gb" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="4"/><rect x="24" width="12" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="26" width="8" height="40" fill="#c8102e"/><rect y="17" width="60" height="6" fill="#c8102e"/></symbol>
     <symbol id="icon-flag-at" viewBox="0 0 60 40"><rect width="60" height="40" fill="#ed2939"/><rect y="13.33" width="60" height="13.34" fill="#fff"/></symbol>
@@ -292,7 +297,10 @@
         <!-- Header -->
         <div class="features-header stagger-children">
           <span class="section-badge anim-hidden fade-up">Features</span>
-          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Trainiere wie im echten Test</h2>
+          <div class="section-title-with-icon anim-hidden fade-up">
+            <svg class="section-title-icon" aria-hidden="true"><use href="#icon-grid"/></svg>
+            <h2 class="h2-gradient-text text-balance">Trainiere wie im echten Test</h2>
+          </div>
           <p class="anim-hidden fade-up">Hydra Trainer simuliert etablierte psychologische Eignungstests, die in Auswahlverfahren eingesetzt werden. Entwickle logisches Denken, Konzentration und Stressresistenz mit realistischen Testumgebungen.</p>
         </div>
 
@@ -382,7 +390,10 @@
 
         <div class="privacy-header stagger-children">
           <span class="section-badge anim-hidden fade-up">Privacy</span>
-          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Datenschutz von Anfang an</h2>
+          <div class="section-title-with-icon anim-hidden fade-up">
+            <svg class="section-title-icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+            <h2 class="h2-gradient-text text-balance">Datenschutz von Anfang an</h2>
+          </div>
           <p class="anim-hidden fade-up">Entwickelt mit radikaler Einfachheit und vollständigem Datenschutz im Hinterkopf.</p>
         </div>
 
@@ -460,8 +471,9 @@
 
         <div class="reviews-header stagger-children">
           <span class="section-badge anim-hidden fade-up">Reviews &amp; Ratings</span>
-          <div style="display:inline-flex;justify-content:center;position:relative;">
-            <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Stimmen aus der Praxis</h2>
+          <div class="section-title-with-icon anim-hidden fade-up">
+            <svg class="section-title-icon section-title-icon-megaphone" aria-hidden="true"><use href="#icon-megaphone"/></svg>
+            <h2 class="h2-gradient-text text-balance">Stimmen aus der Praxis</h2>
           </div>
           <p class="anim-hidden fade-up">Vier Stimmen. Eine klare Tendenz: fokussiertes Training bringt messbare Vorteile.</p>
           <div id="appstore-rating" class="reviews-rating-badge anim-hidden fade-up" style="display:none;"></div>
@@ -552,7 +564,9 @@
 
         <div class="pricing-header stagger-children">
           <span class="section-badge anim-hidden fade-up">Preisgestaltung</span>
-          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Einmal zahlen. Für immer nutzen.</h2>
+          <div class="section-title-with-icon anim-hidden fade-up">
+            <h2 class="h2-gradient-text text-balance">Einmal zahlen. Für immer nutzen.</h2>
+          </div>
           <p class="anim-hidden fade-up">Lade Hydra Trainer kostenlos herunter und entscheide dann in der App, ob du die Lifetime-Lizenz aktivieren möchtest.</p>
         </div>
 
@@ -638,7 +652,10 @@
 
         <div class="faq-header stagger-children">
           <span class="section-badge anim-hidden fade-up">FAQ</span>
-          <h2 class="h2-gradient-text text-balance anim-hidden fade-up">Häufige Fragen</h2>
+          <div class="section-title-with-icon anim-hidden fade-up">
+            <svg class="section-title-icon" aria-hidden="true"><use href="#icon-help-circle"/></svg>
+            <h2 class="h2-gradient-text text-balance">Häufige Fragen</h2>
+          </div>
           <p class="anim-hidden fade-up">Die wichtigsten Antworten rund um Hydra Psychology Trainer.</p>
         </div>
 
