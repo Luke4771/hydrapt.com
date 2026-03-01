@@ -386,7 +386,7 @@ nav.main-nav {
 .hero-appstore {
   position: relative;
   z-index: 20;
-  margin-top: 28px;
+  margin-top: 1.75rem;
 }
 .hero-appstore img { height: 58px; width: auto; margin: 0 auto; }
 
