@@ -14,15 +14,13 @@
 </head>
 <body>
 
-  <!-- SVG Sprite -->
+  <!-- SVG Sprite (nav + footer icons only) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
     <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
     <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
     <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
-    <symbol id="icon-flag-gb" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="4"/><rect x="24" width="12" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="26" width="8" height="40" fill="#c8102e"/><rect y="17" width="60" height="6" fill="#c8102e"/></symbol>
-    <symbol id="icon-flag-at" viewBox="0 0 60 40"><rect width="60" height="40" fill="#ed2939"/><rect y="13.33" width="60" height="13.34" fill="#fff"/></symbol>
   </svg>
 
   <header>
@@ -88,34 +86,34 @@
     </nav>
   </header>
 
-  <main style="background:var(--background);">
-    <section style="max-width:56rem;margin:0 auto;padding:7rem 1.5rem 4rem;">
-      <div style="display:flex;flex-direction:column;gap:2.5rem;">
+  <main class="legal-page">
+    <section class="legal-page-inner">
+      <div class="legal-content">
 
-        <header style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h1 style="font-size:2.5rem;font-weight:700;letter-spacing:-0.025em;color:var(--foreground);">Privacy Policy</h1>
-          <p style="font-size:0.875rem;color:var(--muted-foreground);">Last updated: January 30, 2026</p>
+        <header class="legal-page-header">
+          <h1>Privacy Policy</h1>
+          <p>Last updated: January 30, 2026</p>
         </header>
 
-        <p style="font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
+        <p>
           This privacy policy explains how Hydra Trainer (hereinafter "App") handles personal data. The App is a collection of cognitive exercise and test modules (e.g., equations, adaptive matrix test, continuous addition test, anagrams, number sequences) and works entirely locally on your device, without accounts, cloud sync, or advertising.
         </p>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">1. Data Controller</h2>
+        <section class="legal-section">
+          <h2>1. Data Controller</h2>
           <p>Johannes Kropatschek<br>Vienna, Austria<br>Email: office@hydrapt.com</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">2. Scope and Purpose</h2>
+        <section class="legal-section">
+          <h2>2. Scope and Purpose</h2>
           <p>This policy applies to the use of the App on iOS/iPadOS. The App provides cognitive training and self-assessment features for informational and entertainment purposes.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:1rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">3. What Data Does the App Process?</h2>
+        <section class="legal-section">
+          <h2>3. What Data Does the App Process?</h2>
           <p>The App does not transmit any personal data to the developer or third parties.</p>
           <p>All information mentioned below remains exclusively on your device.</p>
-          <ul style="list-style:disc;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.5rem;">
+          <ul>
             <li>Usage and performance data (on-device): Test progress, answers, scores, timer states, local result overviews.</li>
             <li>App settings (on-device): e.g., light/dark mode, UI preferences.</li>
             <li>No special categories: No health or biometric data in the legal sense is collected or transmitted.</li>
@@ -125,67 +123,67 @@
           <p>When you install Hydra Trainer from the App Store, Apple collects and aggregates telemetry data and provides it to us. This information includes the number of people who downloaded the app, the number of people who used it on a given day, and the total number of users per country. Apple does not share information about specific users with us.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">4. Purposes and Legal Bases (GDPR)</h2>
-          <ul style="list-style:disc;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.5rem;">
+        <section class="legal-section">
+          <h2>4. Purposes and Legal Bases (GDPR)</h2>
+          <ul>
             <li>Provision of the App (Art. 6(1)(b) GDPR): Processing of the above-mentioned on-device data is necessary to provide the app features (tests, results, settings).</li>
             <li>Legitimate interest (Art. 6(1)(f) GDPR): General app security and stability on your device. However, no server-side processing by the developer takes place.</li>
           </ul>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">5. Retention and Deletion</h2>
-          <ul style="list-style:disc;padding-left:1.25rem;display:flex;flex-direction:column;gap:0.5rem;">
+        <section class="legal-section">
+          <h2>5. Retention and Deletion</h2>
+          <ul>
             <li>On the device: Data remains stored until you reset it in the app (if a reset function is available) or uninstall the app.</li>
             <li>With the developer: No personal data is stored.</li>
           </ul>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">6. Recipients and Disclosure</h2>
+        <section class="legal-section">
+          <h2>6. Recipients and Disclosure</h2>
           <p>No disclosure. No personal data is transmitted to third parties.</p>
           <p>No international data transfers.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">7. App Permissions</h2>
+        <section class="legal-section">
+          <h2>7. App Permissions</h2>
           <p>The App does not use any sensitive device permissions such as camera, microphone, contacts, calendar, photos, location, or HealthKit. Should this change in the future, you will be asked for consent before use, and this policy will be updated.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">8. Your Rights (Art. 12-23 GDPR)</h2>
+        <section class="legal-section">
+          <h2>8. Your Rights (Art. 12-23 GDPR)</h2>
           <p>You have the right to access, rectification, erasure, restriction of processing, data portability, and objection.</p>
           <p>Since data is stored exclusively on your device and is not transmitted to the developer, these rights can practically be exercised by you yourself (reset function or uninstallation). For questions, contact office@hydrapt.com.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">9. Minors</h2>
+        <section class="legal-section">
+          <h2>9. Minors</h2>
           <p>The App is not specifically aimed at children. No tracking or collection of personal data by the developer takes place.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">10. Data Security</h2>
+        <section class="legal-section">
+          <h2>10. Data Security</h2>
           <p>Data processing takes place exclusively on your device and is subject to the security mechanisms of iOS/iPadOS. Please protect your device (e.g., device passcode, Face/Touch ID).</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">11. External Services</h2>
+        <section class="legal-section">
+          <h2>11. External Services</h2>
           <p>The App does not integrate any external analytics services, ad networks, or social plugins. Any operating system functions (e.g., system-wide crash reports to Apple, if enabled by you) are Apple's responsibility.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">12. Changes to This Policy</h2>
+        <section class="legal-section">
+          <h2>12. Changes to This Policy</h2>
           <p>We may update this privacy policy if features or legal requirements change. The current version is always available in the app or via the linked notice. See date above.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">13. Contact &amp; Right to Complain</h2>
+        <section class="legal-section">
+          <h2>13. Contact &amp; Right to Complain</h2>
           <p>Privacy questions: office@hydrapt.com</p>
           <p>You also have the right to lodge a complaint with a data protection supervisory authority. In Austria: Austrian Data Protection Authority (dsb.gv.at).</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Disclaimer (Not a Medical Device)</h2>
+        <section class="legal-section">
+          <h2>Disclaimer (Not a Medical Device)</h2>
           <p>The App serves training, information, and entertainment purposes. It is not a medical or psychological diagnostic or therapeutic tool and does not replace professional advice, diagnosis, or treatment.</p>
         </section>
 

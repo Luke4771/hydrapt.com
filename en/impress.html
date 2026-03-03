@@ -14,15 +14,13 @@
 </head>
 <body>
 
-  <!-- SVG Sprite -->
+  <!-- SVG Sprite (nav + footer icons only) -->
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
     <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
     <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
     <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
     <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
-    <symbol id="icon-flag-gb" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="4"/><rect x="24" width="12" height="40" fill="#fff"/><rect y="15" width="60" height="10" fill="#fff"/><rect x="26" width="8" height="40" fill="#c8102e"/><rect y="17" width="60" height="6" fill="#c8102e"/></symbol>
-    <symbol id="icon-flag-at" viewBox="0 0 60 40"><rect width="60" height="40" fill="#ed2939"/><rect y="13.33" width="60" height="13.34" fill="#fff"/></symbol>
   </svg>
 
   <header>
@@ -88,56 +86,56 @@
     </nav>
   </header>
 
-  <main style="background:var(--background);">
-    <section style="max-width:56rem;margin:0 auto;padding:7rem 1.5rem 4rem;">
-      <div style="display:flex;flex-direction:column;gap:2.5rem;font-size:1rem;color:var(--muted-foreground);line-height:1.625;">
+  <main class="legal-page">
+    <section class="legal-page-inner">
+      <div class="legal-content">
 
-        <header style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h1 style="font-size:2.5rem;font-weight:700;letter-spacing:-0.025em;color:var(--foreground);">Legal Notice</h1>
-          <p style="font-size:0.875rem;color:var(--muted-foreground);">Information pursuant to Section 5 of the Austrian E-Commerce Act (ECG)</p>
+        <header class="legal-page-header">
+          <h1>Legal Notice</h1>
+          <p>Information pursuant to Section 5 of the Austrian E-Commerce Act (ECG)</p>
         </header>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <p style="color:var(--foreground);font-weight:500;">Hydra Trainer</p>
+        <section class="legal-section">
+          <p class="legal-emphasis">Hydra Trainer</p>
           <p>Owner: Johannes Kropatschek</p>
           <p>Austria</p>
           <p>Email: office@hydrapt.com</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Responsible for the Content of this Website</h2>
+        <section class="legal-section">
+          <h2>Responsible for the Content of this Website</h2>
           <p>Johannes Kropatschek</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Purpose of the Website</h2>
+        <section class="legal-section">
+          <h2>Purpose of the Website</h2>
           <p>This website provides information about the mobile application "Hydra Trainer," its features, and its use cases for preparation for psychological aptitude tests. No contracts are concluded through this website; the app can only be purchased through the Apple App Store.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Liability for Content</h2>
+        <section class="legal-section">
+          <h2>Liability for Content</h2>
           <p>The content of this website has been created with the greatest care. However, no guarantee can be given for the accuracy, completeness, or timeliness of the information provided.</p>
           <p>Hydra Trainer does not replace any medical, psychological, or other professional diagnosis, assessment, or therapy. All information is provided solely for informational purposes and individual training support.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Liability for Links</h2>
+        <section class="legal-section">
+          <h2>Liability for Links</h2>
           <p>This website contains links to external third-party websites whose content is beyond our control. No liability can be assumed for such external content. The respective provider or operator of the linked pages is always responsible for their content. No unlawful content was identified at the time of linking.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Copyright</h2>
+        <section class="legal-section">
+          <h2>Copyright</h2>
           <p>The content, texts, graphics, logos, images, and layouts published on this website are subject to copyright. Any use beyond the narrow limits of copyright law requires the prior written consent of the copyright holder. Downloads and copies of this page are only permitted for private, non-commercial use, unless expressly stated otherwise.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Data Protection</h2>
-          <p>Information about the processing of personal data in connection with the use of this website and the "Hydra Trainer" app can be found in the <a href="privacy-policy.html" style="color:var(--foreground);text-decoration:underline;text-underline-offset:4px;">Privacy Policy</a>.</p>
+        <section class="legal-section">
+          <h2>Data Protection</h2>
+          <p>Information about the processing of personal data in connection with the use of this website and the "Hydra Trainer" app can be found in the <a href="privacy-policy.html">Privacy Policy</a>.</p>
         </section>
 
-        <section style="display:flex;flex-direction:column;gap:0.75rem;">
-          <h2 style="font-size:1.25rem;font-weight:600;color:var(--foreground);">Online Dispute Resolution / Consumer Mediation</h2>
-          <p>The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style="color:var(--foreground);text-decoration:underline;text-underline-offset:4px;">https://ec.europa.eu/consumers/odr/</a></p>
+        <section class="legal-section">
+          <h2>Online Dispute Resolution / Consumer Mediation</h2>
+          <p>The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a></p>
           <p>The operator is generally not obligated and not willing to participate in dispute resolution proceedings before a consumer arbitration body.</p>
         </section>
 

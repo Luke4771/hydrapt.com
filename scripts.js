@@ -517,12 +517,12 @@ function initFeaturesCarousel() {
   const screen = document.querySelector('.phone-mockup .screen .feature-screen');
   const steps = document.querySelectorAll('.feature-step');
 
-  if (!stepsCol || !dotsContainer || !screen || !steps.length) return;
+  if (!stepsCol || !dotsContainer || !steps.length) return;
 
   initSnapCarousel(stepsCol, dotsContainer, (idx, item) => {
     steps.forEach(s => s.classList.remove('is-active'));
     item.classList.add('is-active');
-    transitionScreen(screen, item.dataset.screen);
+    if (screen) transitionScreen(screen, item.dataset.screen);
   });
 }
 
