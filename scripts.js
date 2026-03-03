@@ -271,20 +271,38 @@ function initScrambleText() {
     const words = JSON.parse(el.dataset.words);
     if (!words || words.length < 2) return;
 
+    /* Find rotating icon next to scramble word */
+    const rotatingIcon = el.nextElementSibling;
+    const icons = rotatingIcon && rotatingIcon.classList.contains('rotating-icon')
+      ? JSON.parse(rotatingIcon.dataset.icons || '[]')
+      : [];
+
     let currentIndex = 0;
 
     function cycle() {
       /* Slide up + fade out (300ms, ease-in) */
       el.classList.add('fade-out');
+      if (rotatingIcon) rotatingIcon.classList.add('icon-fade-out');
+
       setTimeout(() => {
-        currentIndex = (currentIndex + 1) % words.length;
+        const nextIndex = (currentIndex + 1) % words.length;
+
+        /* Update word */
+        currentIndex = nextIndex;
         el.textContent = words[currentIndex];
-        /* Jump to "below" position instantly (no transition) */
         el.classList.remove('fade-out');
         el.classList.add('fade-in-start');
         void el.offsetWidth;
-        /* Animate from below to center (400ms, ease-out) */
         el.classList.remove('fade-in-start');
+
+        /* Update icon */
+        if (rotatingIcon && icons[nextIndex]) {
+          rotatingIcon.classList.remove('icon-fade-out');
+          rotatingIcon.classList.add('icon-fade-in-start');
+          void rotatingIcon.offsetWidth;
+          rotatingIcon.classList.remove('icon-fade-in-start');
+          rotatingIcon.textContent = icons[nextIndex];
+        }
       }, 300);
     }
 

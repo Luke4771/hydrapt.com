@@ -399,6 +399,76 @@ nav.main-nav {
   transition: none;
 }
 
+/* Profession icon next to the scramble word (right side) */
+.hero-heading { position: relative; }
+.hero-profession-icon {
+  position: absolute;
+  right: -5rem;
+  bottom: 0.1em;
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+}
+.hero-prof-icon {
+  position: absolute;
+  inset: 0;
+  width: 64px;
+  height: 64px;
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(8px);
+  transition: opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              filter 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  color: var(--foreground);
+}
+.hero-prof-icon.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+.hero-prof-icon.prof-fade-out {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(-12px);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1),
+              filter 0.3s cubic-bezier(0.4, 0, 1, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+.hero-prof-icon.prof-fade-in-start {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(12px);
+  transition: none;
+}
+
+/* Rotating icon (next to scramble word) */
+.rotating-icon {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-size: 1.1em;
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: opacity 0.3s cubic-bezier(0.33, 1, 0.68, 1),
+              filter 0.3s cubic-bezier(0.33, 1, 0.68, 1),
+              transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.rotating-icon.icon-fade-out {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(-8px);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1),
+              filter 0.3s cubic-bezier(0.4, 0, 1, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+.rotating-icon.icon-fade-in-start {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(8px);
+  transition: none;
+}
+
 .hero-sub {
   margin: 2.75rem auto 0;
   max-width: 42rem;
@@ -1140,6 +1210,8 @@ nav.main-nav {
 @media (min-width: 768px) {
   .hero-inner { padding-top: 9rem; }
   .hero-heading { font-size: 4.05rem; margin-top: 0.75rem; }
+  .hero-profession-icon { width: 72px; height: 72px; right: -6rem; }
+  .hero-prof-icon { width: 72px; height: 72px; }
   .hero-logo-area { margin-top: -2.5rem; }
   /* bump size */
   .hero-logo-inner { max-width: 54rem; }
@@ -1204,12 +1276,16 @@ nav.main-nav {
   .features-steps-col { gap: 0.75rem; }
   .hero-bg-decor { display: block; }
   .hero-sub { font-size: 1.25rem; }
+  .hero-profession-icon { width: 80px; height: 80px; right: -7rem; }
+  .hero-prof-icon { width: 80px; height: 80px; }
   .features-header p, .privacy-header p, .reviews-header p, .pricing-header p, .faq-header p { font-size: 1.25rem; }
   .phone-mockup { width: 340px; }
   .phone-mockup-wrapper { max-width: 360px; }
 }
 @media (min-width: 1280px) {
   .hero-heading { font-size: 4.725rem; }
+  .hero-profession-icon { width: 88px; height: 88px; right: -8rem; }
+  .hero-prof-icon { width: 88px; height: 88px; }
   .features-sticky-wrap { gap: 5rem; }
   .features-steps-col { gap: 1rem; }
   .phone-mockup { width: 380px; }
@@ -1387,6 +1463,8 @@ nav.main-nav {
   .hero-pill-arrow-inner svg { width: 0.6rem; height: 0.6rem; }
   .hero-pill-divider { height: 0.75rem; }
   .hero-heading { font-size: clamp(2rem, 9vw, 2.75rem); margin-top: 0.75rem; }
+  .hero-profession-icon { width: 36px; height: 36px; right: -2.5rem; bottom: 0; }
+  .hero-prof-icon { width: 36px; height: 36px; }
   .hero-sub { font-size: 1rem; margin-top: 1.25rem; }
   .hero-appstore { margin-top: 1.25rem; }
   .hero-appstore img { height: 48px; }
