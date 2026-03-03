@@ -316,7 +316,7 @@ nav.main-nav {
 .hero-section {
   background: var(--background);
   position: relative;
-  padding: 12rem 0 2rem 0;
+  padding: 7rem 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -510,8 +510,13 @@ nav.main-nav {
 .hero-cta-primary,
 .hero-cta-secondary {
   padding: 0.75rem 1.5rem;
-  height: auto;
+  height: 3rem;
+  min-width: 11rem;
   font-size: 1rem;
+  box-sizing: border-box;
+}
+.hero-cta-primary {
+  border: 1px solid transparent;
 }
 .hero-cta-primary svg {
   flex-shrink: 0;
@@ -548,40 +553,27 @@ nav.main-nav {
 .hero-gallery {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .gallery-grid {
   display: flex;
-  gap: 0.75rem;
-  height: 100%;
-  margin-left: -15%;
+  gap: 1rem;
+  align-items: start;
+  position: relative;
+  margin-left: 0;
+}
+
+.gallery-item:nth-child(2) {
+  margin-top: 2rem;
 }
 
 .gallery-item {
   flex: 1;
+  overflow: hidden;
+  border-radius: calc(var(--radius) + 2px);
 }
 
-/* Gradient fades on gallery edges */
-.hero-gallery::before,
-.hero-gallery::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 30%;
-  z-index: 2;
-  pointer-events: none;
-}
-.hero-gallery::before {
-  left: 0;
-  background: linear-gradient(to right, var(--background), transparent);
-}
-.hero-gallery::after {
-  right: 0;
-  width: 40%;
-  background: linear-gradient(to left, var(--background), transparent);
-}
 
 .gallery-item img {
   width: 100%;
@@ -590,6 +582,10 @@ nav.main-nav {
   object-fit: cover;
   display: block;
   border-radius: calc(var(--radius) + 2px);
+}
+
+.gallery-item:first-child img {
+  transform: scale(1.05);
 }
 
 .profession-label {
@@ -611,21 +607,21 @@ nav.main-nav {
     overflow: hidden;
   }
   .hero-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     position: relative;
   }
   .hero-left {
     position: relative;
     z-index: 10;
-    max-width: 55%;
+    max-width: 100%;
   }
   .hero-right {
     display: block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -8%;
-    width: 55%;
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
   }
   .hero-logo-area { margin-top: 6rem; }
   .hero-logo-inner { max-width: 54rem; }
