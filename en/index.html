@@ -297,7 +297,7 @@
               <svg class="sun" width="24" height="24"><use href="#icon-sun"/></svg>
               <svg class="moon" width="24" height="24"><use href="#icon-moon"/></svg>
             </button>
-            <a href="../index.html" class="btn btn-ghost btn-sm lang-toggle" aria-label="Deutsche Version">
+            <a href="../index.html" class="lang-toggle" aria-label="Deutsche Version">
               <span>DE</span>
             </a>
           </div>
@@ -317,7 +317,7 @@
                   <svg class="sun" width="24" height="24"><use href="#icon-sun"/></svg>
                   <svg class="moon" width="24" height="24"><use href="#icon-moon"/></svg>
                 </button>
-                <a href="../index.html" class="btn btn-ghost btn-sm lang-toggle" aria-label="Deutsche Version">
+                <a href="../index.html" class="lang-toggle" aria-label="Deutsche Version">
                   <span>DE</span>
                 </a>
               </div>
@@ -337,19 +337,19 @@
         <!-- Left Column -->
         <div class="hero-left">
           <!-- Badge -->
-          <div class="hero-badge anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.2s;">
+          <div class="hero-badge">
             <span class="badge-label">NEW</span>
             <span class="badge-text">Stroop Test Module</span>
           </div>
 
           <!-- Main Heading -->
-          <h1 class="hero-title anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.35s;">Training for psychological aptitude tests</h1>
+          <h1 class="hero-title">Training for psychological aptitude tests</h1>
 
           <!-- Description -->
-          <p class="hero-description anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.5s;">Targeted preparation for applicants in law enforcement and academia, with tasks from real aptitude test procedures.</p>
+          <p class="hero-description">Targeted preparation for applicants in law enforcement and academia, with tasks from real aptitude test procedures.</p>
 
           <!-- CTAs -->
-          <div class="hero-ctas anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.65s;">
+          <div class="hero-ctas">
             <a href="https://apps.apple.com/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-cta-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
               <span>App Store</span>
@@ -363,43 +363,53 @@
 
         <!-- Right Column - Image Gallery -->
         <div class="hero-right">
-          <div class="hero-gallery anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.5s;">
-            <!-- Gallery Grid (CSS-only seamless loop, items duplicated for wrap) -->
+          <div class="hero-gallery">
             <div class="gallery-grid">
-              <div class="gallery-item">
-                <img src="../assets/hero gallery images/soldier.webp" alt="Military" width="240" height="320" loading="eager">
-              </div>
-              <div class="gallery-item">
-                <img src="../assets/hero gallery images/pilot.webp" alt="Pilots" width="240" height="320" loading="eager">
-              </div>
-              <div class="gallery-item">
-                <img src="../assets/hero gallery images/special forces.webp" alt="Special Forces" width="240" height="320" loading="eager">
-              </div>
               <div class="gallery-item">
                 <img src="../assets/hero gallery images/airtraffic controller.webp" alt="Air Traffic Control" width="240" height="320" loading="eager">
               </div>
               <div class="gallery-item">
                 <img src="../assets/hero gallery images/police officer.webp" alt="Police" width="240" height="320" loading="eager">
               </div>
-              <div class="gallery-item" aria-hidden="true">
-                <img src="../assets/hero gallery images/soldier.webp" alt="" width="240" height="320" loading="lazy">
-              </div>
-              <div class="gallery-item" aria-hidden="true">
-                <img src="../assets/hero gallery images/pilot.webp" alt="" width="240" height="320" loading="lazy">
-              </div>
-              <div class="gallery-item" aria-hidden="true">
-                <img src="../assets/hero gallery images/special forces.webp" alt="" width="240" height="320" loading="lazy">
-              </div>
-              <div class="gallery-item" aria-hidden="true">
-                <img src="../assets/hero gallery images/airtraffic controller.webp" alt="" width="240" height="320" loading="lazy">
-              </div>
-              <div class="gallery-item" aria-hidden="true">
-                <img src="../assets/hero gallery images/police officer.webp" alt="" width="240" height="320" loading="lazy">
-              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Profession / field marquee -->
+      <div class="hero-marquee" aria-label="Fields using aptitude tests">
+        <div class="hero-marquee-track">
+          <span class="hero-marquee-item">Police</span>
+          <span class="hero-marquee-item">Military</span>
+          <span class="hero-marquee-item">Special Forces</span>
+          <span class="hero-marquee-item">Air Traffic Control</span>
+          <span class="hero-marquee-item">Firefighters</span>
+          <span class="hero-marquee-item">Pilots</span>
+          <span class="hero-marquee-item">Medicine</span>
+          <span class="hero-marquee-item">Psychology</span>
+          <span class="hero-marquee-item">Pharmacy</span>
+          <span class="hero-marquee-item">Dentistry</span>
+          <span class="hero-marquee-item">Corrections</span>
+          <!-- duplicate for seamless loop -->
+          <span class="hero-marquee-item">Police</span>
+          <span class="hero-marquee-item">Military</span>
+          <span class="hero-marquee-item">Special Forces</span>
+          <span class="hero-marquee-item">Air Traffic Control</span>
+          <span class="hero-marquee-item">Firefighters</span>
+          <span class="hero-marquee-item">Pilots</span>
+          <span class="hero-marquee-item">Medicine</span>
+          <span class="hero-marquee-item">Psychology</span>
+          <span class="hero-marquee-item">Pharmacy</span>
+          <span class="hero-marquee-item">Dentistry</span>
+          <span class="hero-marquee-item">Corrections</span>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#features" class="hero-scroll-hint" aria-label="Scroll down">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+
     </section>
 
     <!-- ============================
@@ -817,12 +827,12 @@
           <svg width="20" height="20" aria-hidden="true"><use href="#icon-instagram"/></svg>
         </a>
         <div class="footer-links">
-          <span>&copy; 2025 Hydra PT</span>
-          <span class="footer-dot">&middot;</span>
+          <span>© 2025 Hydra PT</span>
+          <span class="footer-dot">·</span>
           <a href="impress.html" target="_blank" rel="noopener noreferrer">Legal Notice</a>
-          <span class="footer-dot">&middot;</span>
+          <span class="footer-dot">·</span>
           <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-          <span class="footer-dot">&middot;</span>
+          <span class="footer-dot">·</span>
           <a href="https://apps.apple.com/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer">App Store</a>
         </div>
       </div>
