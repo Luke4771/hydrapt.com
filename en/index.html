@@ -349,39 +349,54 @@
     </div>
 
     <section class="hero-section">
-      <div class="hero-dot-pattern anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.6s;" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-container">
-          <div class="hero-left">
+      <div class="hero-container">
+        <!-- Left Column -->
+        <div class="hero-left">
+          <!-- Badge -->
+          <a href="#features" class="hero-badge anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.2s;">
+            <span class="badge-label">New</span>
+            <span class="badge-text">Psychological Training</span>
+            <svg class="icon-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
 
-            <!-- Heading with rotating icon -->
-            <h1 class="hero-heading text-reveal hero-auto-animate" data-speed="0.08">Psychological Training for<br><span class="scramble-word anim-hidden fade-blur" data-words='["Police","Military","Special Forces","Pilots","Security"]'>Police</span></h1>
+          <!-- Main Heading -->
+          <h1 class="hero-title anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.35s;">Psychological Training for<br><span class="scramble-word anim-hidden fade-blur" data-words='["Police","Military","Special Forces","Pilots","Security"]'>Police</span></h1>
 
-            <!-- Subheading -->
-            <p class="hero-sub text-reveal hero-auto-animate text-balance" data-delay="0.35" data-speed="0.12" data-per="line">Useful for anyone who needs to complete a psychological aptitude assessment or wants to improve their cognitive performance.</p>
+          <!-- Description -->
+          <p class="hero-description anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.5s;">For anyone who needs to complete a psychological aptitude assessment. Closer to reality than ever before.</p>
 
-            <!-- App Store Button -->
-            <div class="hero-appstore anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.6s;">
-              <a href="https://apps.apple.com/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" aria-label="Open Hydra Trainer on the App Store">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="162" height="48" style="height:58px;width:auto;">
-              </a>
+          <!-- App Store Badge -->
+          <div class="hero-appstore anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.65s;">
+            <a href="https://apps.apple.com/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" aria-label="Open Hydra Trainer on the App Store">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" width="162" height="48" style="height:58px;width:auto;">
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column - Image Gallery -->
+        <div class="hero-right">
+          <div class="hero-gallery anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.5s;">
+            <!-- Gallery Grid (5 images, GSAP seamless loop) -->
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img src="../assets/hero gallery images/soldier.webp" alt="Military" width="240" height="320" loading="eager">
+              </div>
+              <div class="gallery-item">
+                <img src="../assets/hero gallery images/pilot.webp" alt="Pilots" width="240" height="320" loading="eager">
+              </div>
+              <div class="gallery-item">
+                <img src="../assets/hero gallery images/special forces.webp" alt="Special Forces" width="240" height="320" loading="eager">
+              </div>
+              <div class="gallery-item">
+                <img src="../assets/hero gallery images/airtraffic controller.webp" alt="Air Traffic Control" width="240" height="320" loading="eager">
+              </div>
+              <div class="gallery-item">
+                <img src="../assets/hero gallery images/police officer.webp" alt="Police" width="240" height="320" loading="eager">
+              </div>
             </div>
           </div>
-
-          <!-- Right column with rotating image -->
-          <div class="hero-right anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.75s;">
-            <img class="hero-rotating-image" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=600&fit=crop" alt="Police" data-images='["https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=600&fit=crop","https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=600&h=600&fit=crop","https://images.unsplash.com/photo-1578070038776-46a088bb2159?w=600&h=600&fit=crop","https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&h=600&fit=crop","https://images.unsplash.com/photo-1493519158844-a649e8df3c8c?w=600&h=600&fit=crop"]' width="600" height="600">
-          </div>
         </div>
-
-        <!-- Hero mockup image -->
-        <div class="hero-logo-area anim-hidden fade-blur hero-auto-animate" style="transition-delay: 0.75s;">
-          <div class="hero-logo-fade" aria-hidden="true"></div>
-          <div class="hero-logo-inner">
-            <img src="../assets/hero-mockup.webp" alt="Hydra Hero Mockup" width="1800" height="1438">
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -822,6 +837,7 @@
   </button>
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
   <script src="../scripts.js"></script>
 </body>
 </html>

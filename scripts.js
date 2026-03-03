@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Rotating hero images ----
   initRotatingImages();
 
+  // ---- Hero image gallery (GSAP seamless loop) ----
+  initHeroGallery();
+
   // ---- Feature scroll screen switching ----
   initFeatureScroll();
 
@@ -549,5 +552,57 @@ function initScrollToTop() {
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* =========================================
+   HERO IMAGE GALLERY (GSAP seamless loop)
+   Uses GSAP modifiers for pixel-perfect
+   infinite scrolling without duplicating items.
+   ========================================= */
+function initHeroGallery() {
+  const gallery = document.querySelector('.hero-gallery');
+  const grid = document.querySelector('.gallery-grid');
+  const items = gsap.utils.toArray('.gallery-item');
+  if (!gallery || !grid || items.length === 0) return;
+
+  const gap = parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.75;
+  let tween;
+
+  function setup() {
+    if (tween) tween.kill();
+
+    const galleryW = gallery.offsetWidth;
+    const itemW = (galleryW - gap) / 2;
+    const slot = itemW + gap;
+    const totalW = items.length * slot;
+
+    gsap.set(items, {
+      width: itemW,
+      x: (i) => i * slot
+    });
+    gsap.set(grid, { x: -slot });
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    tween = gsap.to(items, {
+      duration: 40,
+      ease: 'none',
+      x: '-=' + totalW,
+      modifiers: {
+        x: gsap.utils.unitize(function (x) {
+          return ((parseFloat(x) % totalW) + totalW) % totalW;
+        })
+      },
+      repeat: -1
+    });
+  }
+
+  setup();
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(setup, 200);
   });
 }
