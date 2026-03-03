@@ -375,8 +375,32 @@ nav.main-nav {
   filter: inherit;
 }
 
+/* Fade-blur text rotation */
+.scramble-word.word {
+  display: block;
+  margin-top: 0.1em;
+  will-change: transform, opacity, filter;
+  transition: opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              filter 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+              transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.scramble-word.fade-out.word {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(-20px);
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1),
+              filter 0.3s cubic-bezier(0.4, 0, 1, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+.scramble-word.fade-in-start.word {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(20px);
+  transition: none;
+}
+
 .hero-sub {
-  margin: 2rem auto 0;
+  margin: 2.75rem auto 0;
   max-width: 42rem;
   font-size: 1.125rem;
   color: var(--muted-foreground);

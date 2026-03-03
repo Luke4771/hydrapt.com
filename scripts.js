@@ -3,6 +3,9 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ---- Language Redirect ----
+  initLanguageRedirect();
+
   // ---- Theme Toggle ----
   initTheme();
 
@@ -20,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Word-by-word text reveal ----
   initTextReveal();
+
+  // ---- Scramble text rotation ----
+  initScrambleText();
 
   // ---- Feature scroll screen switching ----
   initFeatureScroll();
@@ -43,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================= */
 function initTheme() {
   const stored = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const theme = stored || (prefersDark ? 'dark' : 'light');
+  const theme = stored || 'light';
   applyTheme(theme);
 
   document.querySelectorAll('.theme-toggle').forEach(btn => {
@@ -62,6 +67,30 @@ function applyTheme(theme) {
     document.documentElement.classList.add('dark');
   } else {
     document.documentElement.classList.remove('dark');
+  }
+}
+
+/* =========================================
+   LANGUAGE REDIRECT
+   ========================================= */
+function initLanguageRedirect() {
+  const stored = localStorage.getItem('language-redirected');
+  if (stored) return;
+
+  const currentPath = window.location.pathname;
+  const isEnPath = currentPath.includes('/en/');
+  const isRootPath = currentPath === '/' || currentPath === '/index.html';
+
+  if (isEnPath) return;
+
+  const lang = navigator.language || navigator.userLanguage;
+  const isGermanSpeaking = /^de(-|$)/.test(lang);
+
+  if (isRootPath && !isGermanSpeaking) {
+    localStorage.setItem('language-redirected', 'true');
+    window.location.href = '/en/index.html';
+  } else if (isRootPath && isGermanSpeaking) {
+    localStorage.setItem('language-redirected', 'true');
   }
 }
 
@@ -192,6 +221,16 @@ function initScrollAnimations() {
    ========================================= */
 function initTextReveal() {
   document.querySelectorAll('.text-reveal').forEach(el => {
+    /* Preserve scramble-word data before innerHTML is cleared */
+    const scrambleEl = el.querySelector('.scramble-word');
+    let scrambleData = null;
+    if (scrambleEl) {
+      scrambleData = {
+        words: scrambleEl.dataset.words,
+        initial: scrambleEl.textContent.trim()
+      };
+    }
+
     const text = el.textContent.trim();
     const per = el.dataset.per || 'word';
     const delay = parseFloat(el.dataset.delay || '0');
@@ -205,6 +244,13 @@ function initTextReveal() {
       span.className = 'word';
       span.textContent = seg;
       span.style.transitionDelay = `${delay + i * speed}s`;
+
+      if (scrambleData && seg === scrambleData.initial) {
+        span.classList.add('scramble-word');
+        span.dataset.words = scrambleData.words;
+        scrambleData = null;
+      }
+
       el.appendChild(span);
       if (i < segments.length - 1) {
         el.appendChild(document.createTextNode(' '));
@@ -214,6 +260,38 @@ function initTextReveal() {
     if (el.classList.contains('hero-auto-animate')) {
       setTimeout(() => el.classList.add('anim-visible'), 100);
     }
+  });
+}
+
+/* =========================================
+   FADE-BLUR TEXT ROTATION
+   ========================================= */
+function initScrambleText() {
+  document.querySelectorAll('.scramble-word').forEach(el => {
+    const words = JSON.parse(el.dataset.words);
+    if (!words || words.length < 2) return;
+
+    let currentIndex = 0;
+
+    function cycle() {
+      /* Slide up + fade out (300ms, ease-in) */
+      el.classList.add('fade-out');
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % words.length;
+        el.textContent = words[currentIndex];
+        /* Jump to "below" position instantly (no transition) */
+        el.classList.remove('fade-out');
+        el.classList.add('fade-in-start');
+        void el.offsetWidth;
+        /* Animate from below to center (400ms, ease-out) */
+        el.classList.remove('fade-in-start');
+      }, 300);
+    }
+
+    /* Wait for text-reveal animation, then start cycling */
+    setTimeout(() => {
+      setInterval(cycle, 3000);
+    }, 2500);
   });
 }
 
