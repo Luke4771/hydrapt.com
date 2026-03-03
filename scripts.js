@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Scramble text rotation ----
   initScrambleText();
 
+  // ---- Rotating hero images ----
+  initRotatingImages();
+
   // ---- Feature scroll screen switching ----
   initFeatureScroll();
 
@@ -308,7 +311,40 @@ function initScrambleText() {
 
     /* Wait for text-reveal animation, then start cycling */
     setTimeout(() => {
-      setInterval(cycle, 3000);
+      /* Remove scroll-animation classes so they don't block cycling transitions */
+      el.classList.remove('anim-hidden', 'anim-visible', 'fade-blur');
+      setInterval(cycle, 4000);
+    }, 2500);
+  });
+}
+
+/* =========================================
+   ROTATING HERO IMAGES
+   ========================================= */
+function initRotatingImages() {
+  document.querySelectorAll('.hero-rotating-image').forEach(el => {
+    const images = JSON.parse(el.dataset.images || '[]');
+    if (!images || images.length < 2) return;
+
+    let currentIndex = 0;
+
+    function cycle() {
+      el.classList.add('fade-out');
+
+      setTimeout(() => {
+        const nextIndex = (currentIndex + 1) % images.length;
+
+        currentIndex = nextIndex;
+        el.src = images[currentIndex];
+        el.classList.remove('fade-out');
+        el.classList.add('fade-in-start');
+        void el.offsetWidth;
+        el.classList.remove('fade-in-start');
+      }, 300);
+    }
+
+    setTimeout(() => {
+      setInterval(cycle, 4000);
     }, 2500);
   });
 }

@@ -253,6 +253,21 @@ Color: var(--muted-foreground)
 
 - Elemente mit `.hero-auto-animate` werden sofort (nach 100ms) sichtbar (kein Scroll nötig)
 
+### Scramble-Word Animation (Rotating Words + Image Sync)
+
+- **H1 Rotation**: Das `<span class="scramble-word">` Element im Hero H1 rotiert durch eine Liste von Wörtern (definiert in `data-words` Attribut)
+  - Wörter: Polizei → Militär → Spezialeinheiten → Fluglotsen → Piloten (DE) / Police → Military → Special Forces → Pilots → Security (EN)
+  - Effekt: Text wechselt mit `fade-blur` Animation (Blur + Translate)
+  - Klassen: `.scramble-word .anim-hidden .fade-blur`
+
+- **Image Sync**: Die Rotationen der Wörter sind direkt mit dem `.hero-rotating-image` gekoppelt
+  - Das Bild (rechts neben dem Text) wechselt synchron mit den Wörtern
+  - Bilder sind über `data-images` Array definiert (5 Bilder für jedes Profession)
+  - Timing: Beide Animationen laufen parallel (Word-Rotation + Image-Rotation)
+  - Verwendete Bilder: Unsplash URLs (Police, Military, Special Forces, Pilots, Security)
+
+- **Implementierung**: JavaScript in `scripts.js` koordiniert den Wechsel zwischen Wörtern und Bildern in regelmäßigen Intervallen
+
 ### FAQ Toggle
 
 - JavaScript-gesteuerte Height-Animation mit `transitionend`-Events
