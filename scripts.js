@@ -165,11 +165,16 @@ function initSmoothScroll() {
    SCROLL ANIMATIONS (IntersectionObserver)
    ========================================= */
 function initScrollAnimations() {
-  // Clean up will-change after transition ends to free GPU memory
+  // Clean up will-change after ALL transitions end to free GPU memory.
+  // Uses a debounce so we wait until no more transitionend events fire.
   function clearWillChange(el) {
+    var timer;
     el.addEventListener('transitionend', function handler() {
-      el.style.willChange = 'auto';
-      el.removeEventListener('transitionend', handler);
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        el.style.willChange = 'auto';
+        el.removeEventListener('transitionend', handler);
+      }, 50);
     });
   }
 
@@ -220,14 +225,6 @@ function initScrollAnimations() {
   document.querySelectorAll('.stagger-children').forEach(el => {
     staggerObserver.observe(el);
   });
-
-  // Auto-animate hero elements (no scroll needed, immediate)
-  document.querySelectorAll('.hero-auto-animate').forEach(el => {
-    setTimeout(() => {
-      el.classList.add('anim-visible');
-      clearWillChange(el);
-    }, 100);
-  });
 }
 
 /* =========================================
@@ -271,9 +268,6 @@ function initTextReveal() {
       }
     });
 
-    if (el.classList.contains('hero-auto-animate')) {
-      setTimeout(() => el.classList.add('anim-visible'), 100);
-    }
   });
 }
 
