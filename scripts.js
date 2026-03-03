@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Rotating hero images ----
   initRotatingImages();
 
-  // ---- Hero image gallery (GSAP seamless loop) ----
-  initHeroGallery();
-
   // ---- Feature scroll screen switching ----
   initFeatureScroll();
 
@@ -168,10 +165,19 @@ function initSmoothScroll() {
    SCROLL ANIMATIONS (IntersectionObserver)
    ========================================= */
 function initScrollAnimations() {
+  // Clean up will-change after transition ends to free GPU memory
+  function clearWillChange(el) {
+    el.addEventListener('transitionend', function handler() {
+      el.style.willChange = 'auto';
+      el.removeEventListener('transitionend', handler);
+    });
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('anim-visible');
+        clearWillChange(entry.target);
         observer.unobserve(entry.target);
       }
     });
@@ -193,6 +199,7 @@ function initScrollAnimations() {
         // Add anim-visible to all children when container enters view
         children.forEach(child => {
           child.classList.add('anim-visible');
+          clearWillChange(child);
         });
         // Remove anim-hidden after animations finish so stagger
         // transition-delays no longer affect interactive transitions
@@ -214,10 +221,11 @@ function initScrollAnimations() {
     staggerObserver.observe(el);
   });
 
-  // Auto-animate hero elements (no scroll needed – immediate)
+  // Auto-animate hero elements (no scroll needed, immediate)
   document.querySelectorAll('.hero-auto-animate').forEach(el => {
     setTimeout(() => {
       el.classList.add('anim-visible');
+      clearWillChange(el);
     }, 100);
   });
 }
@@ -555,54 +563,3 @@ function initScrollToTop() {
   });
 }
 
-/* =========================================
-   HERO IMAGE GALLERY (GSAP seamless loop)
-   Uses GSAP modifiers for pixel-perfect
-   infinite scrolling without duplicating items.
-   ========================================= */
-function initHeroGallery() {
-  const gallery = document.querySelector('.hero-gallery');
-  const grid = document.querySelector('.gallery-grid');
-  const items = gsap.utils.toArray('.gallery-item');
-  if (!gallery || !grid || items.length === 0) return;
-
-  const gap = parseFloat(getComputedStyle(document.documentElement).fontSize) * 0.75;
-  let tween;
-
-  function setup() {
-    if (tween) tween.kill();
-
-    const galleryW = gallery.offsetWidth;
-    const itemW = (galleryW - gap) / 2;
-    const slot = itemW + gap;
-    const totalW = items.length * slot;
-
-    gsap.set(items, {
-      width: itemW,
-      x: (i) => i * slot
-    });
-    gsap.set(grid, { x: -slot });
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    tween = gsap.to(items, {
-      duration: 40,
-      ease: 'none',
-      x: '-=' + totalW,
-      modifiers: {
-        x: gsap.utils.unitize(function (x) {
-          return ((parseFloat(x) % totalW) + totalW) % totalW;
-        })
-      },
-      repeat: -1
-    });
-  }
-
-  setup();
-
-  var resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(setup, 200);
-  });
-}
