@@ -1386,28 +1386,30 @@ nav.main-nav {
   padding: 1.5rem 0;
 }
 .dark .footer-section { background: #000; }
-.footer-container { max-width: 64rem; padding: 0 2rem; }
+.footer-container { max-width: 64rem; padding: 0 2rem; margin: 0 auto; }
 .footer-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   font-size: 0.8125rem;
   color: #a1a1aa;
 }
-.footer-instagram {
-  display: flex;
-  align-items: center;
-  opacity: 0.85;
-  transition: opacity var(--duration-fast);
-}
-.footer-instagram:hover { opacity: 1; }
+.footer-copyright { flex-shrink: 0; }
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  flex: 1;
   gap: 0.5rem;
 }
+.footer-instagram {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: opacity var(--duration-fast);
+}
+.footer-instagram:hover { opacity: 1; }
 .footer-dot { color: #a1a1aa; opacity: 0.4; }
 .footer-content a { color: #a1a1aa; transition: color var(--duration-fast); }
 .footer-content a:hover { color: #f4f4f5; }
@@ -1792,7 +1794,15 @@ nav.main-nav {
   .faq-item summary { font-size: 1rem; }
   .faq-item p { font-size: 0.9375rem; }
 
-  .footer-section { padding: 1.25rem 0; }
+  .footer-section { padding: 1.5rem 0; }
+  .footer-content {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+  .footer-copyright { margin-right: 0; }
+  .footer-links { flex: none; }
+  .footer-dot { display: none; }
 }
 
 /* ---------- Legal Pages (Privacy Policy, Impress) ---------- */
