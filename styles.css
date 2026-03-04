@@ -942,7 +942,7 @@ nav.main-nav {
    ============================================ */
 .features-section {
   padding: 2rem 0 5rem;
-  scroll-margin-top: 2rem;
+  scroll-margin-top: 6rem;
   background: linear-gradient(180deg, #ffffff 0%, #CAD8DD 45%, #ffffff 100%);
 }
 .dark .features-section {
