@@ -293,12 +293,17 @@
 
           <!-- Desktop right buttons -->
           <div class="nav-desktop-right">
-            <button class="btn btn-ghost btn-icon theme-toggle" aria-label="Toggle theme">
-              <svg class="sun" width="24" height="24"><use href="#icon-sun"/></svg>
-              <svg class="moon" width="24" height="24"><use href="#icon-moon"/></svg>
-            </button>
             <a href="en/index.html" class="lang-toggle" aria-label="English version">
               <span>EN</span>
+            </a>
+            <button class="theme-toggle" aria-label="Toggle theme">
+              <svg class="sun" width="18" height="18"><use href="#icon-sun"/></svg>
+              <svg class="moon" width="18" height="18"><use href="#icon-moon"/></svg>
+            </button>
+            <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer"
+               class="nav-app-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              <span>Download</span>
             </a>
           </div>
 
@@ -313,14 +318,19 @@
             </ul>
             <div class="nav-mobile-actions">
               <div class="nav-mobile-bottom">
-                <button class="btn btn-ghost btn-icon theme-toggle" aria-label="Toggle theme">
-                  <svg class="sun" width="24" height="24"><use href="#icon-sun"/></svg>
-                  <svg class="moon" width="24" height="24"><use href="#icon-moon"/></svg>
-                </button>
                 <a href="en/index.html" class="lang-toggle" aria-label="English version">
                   <span>EN</span>
                 </a>
+                <button class="theme-toggle" aria-label="Toggle theme">
+                  <svg class="sun" width="18" height="18"><use href="#icon-sun"/></svg>
+                  <svg class="moon" width="18" height="18"><use href="#icon-moon"/></svg>
+                </button>
               </div>
+              <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer"
+                 class="nav-app-badge" style="margin-top: 0.5rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                <span>Download</span>
+              </a>
             </div>
           </div>
         </div>
@@ -333,82 +343,86 @@
        ============================ -->
   <main id="home" style="overflow:hidden;">
     <section class="hero-section">
+
+      <!-- Background layers -->
+      <div class="hero-bg-mesh"></div>
+      <div class="hero-dot-grid"></div>
+
+      <!-- Content -->
       <div class="hero-container">
-        <!-- Left Column -->
+
+        <!-- Left: Text Content -->
         <div class="hero-left">
+
           <!-- Badge -->
           <div class="hero-badge">
             <span class="badge-label">NEU</span>
             <span class="badge-text">Stroop Test Modul</span>
           </div>
 
-          <!-- Main Heading -->
-          <h1 class="hero-title">Training für psychologische Eignungstests</h1>
+          <!-- Headline -->
+          <h1 class="hero-title">Bestehe deinen Eignungstest.</h1>
 
-          <!-- Description -->
-          <p class="hero-description">Gezielte Vorbereitung für Bewerber bei Einsatzkräften und Studium - mit Aufgaben aus realen Eignungstestverfahren.</p>
+          <!-- Subheadline -->
+          <p class="hero-description">Gezielte Vorbereitung fuer Bewerber bei Polizei, Spezialeinheiten, Luftfahrt und Studium. Mit Aufgaben aus realen Aufnahmetestverfahren.</p>
 
           <!-- CTAs -->
           <div class="hero-ctas">
             <a href="https://apps.apple.com/at/app/hydra-trainer/id6754796903" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-cta-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              <span>App Store</span>
+              <span>Kostenlos laden</span>
             </a>
             <a href="#features" class="btn btn-outline hero-cta-secondary">
               <span>Mehr erfahren</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </a>
           </div>
 
+          <!-- Social Proof -->
+          <div class="hero-social-proof">
+            <div class="hero-stars">
+              <div class="hero-stars-icons">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              </div>
+              <span class="hero-stars-label">5.0 im App Store</span>
+            </div>
+            <div class="hero-proof-divider"></div>
+            <div class="hero-users">
+              <div class="hero-user-avatars">
+                <span style="background: linear-gradient(135deg, #3b82f6, #6366f1);">P</span>
+                <span style="background: linear-gradient(135deg, #10b981, #14b8a6);">M</span>
+                <span style="background: linear-gradient(135deg, #f97316, #ef4444);">K</span>
+              </div>
+              <span class="hero-users-label">500+ Nutzer vertrauen uns</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Right Column - Image Gallery -->
+        <!-- Right: Phone Mockup -->
         <div class="hero-right">
-          <div class="hero-gallery">
-            <div class="gallery-grid">
-              <div class="gallery-item">
-                <img src="assets/hero gallery images/police officer.webp" alt="Polizei" width="240" height="320" loading="eager">
-              </div>
-              <div class="gallery-item">
-                <img src="assets/hero gallery images/airtraffic.webp" alt="Fluglotsen" width="240" height="320" loading="eager">
-              </div>
+          <div class="hero-phone-wrap">
+            <div class="hero-phone-glow"></div>
+            <div class="phone-mockup">
+              <div class="screen"><img src="assets/screens/training-overview.webp" alt="Hydra PT App" loading="eager"></div>
+              <div class="frame"><img src="assets/iphone-frame.webp" alt="" loading="eager"></div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Berufe / Studienrichtungen Marquee -->
-      <div class="hero-marquee" aria-label="Berufe und Studienrichtungen mit Eignungstests">
-        <div class="hero-marquee-track">
-          <span class="hero-marquee-item">Polizei</span>
-          <span class="hero-marquee-item">Bundesheer</span>
-          <span class="hero-marquee-item">Spezialeinheiten</span>
-          <span class="hero-marquee-item">Fluglotsen</span>
-          <span class="hero-marquee-item">Feuerwehr</span>
-          <span class="hero-marquee-item">Piloten</span>
-          <span class="hero-marquee-item">Medizin</span>
-          <span class="hero-marquee-item">Psychologie</span>
-          <span class="hero-marquee-item">Pharmazie</span>
-          <span class="hero-marquee-item">Zahnmedizin</span>
-          <span class="hero-marquee-item">Justizwache</span>
-          <!-- Duplikat fuer nahtlose Schleife -->
-          <span class="hero-marquee-item">Polizei</span>
-          <span class="hero-marquee-item">Bundesheer</span>
-          <span class="hero-marquee-item">Spezialeinheiten</span>
-          <span class="hero-marquee-item">Fluglotsen</span>
-          <span class="hero-marquee-item">Feuerwehr</span>
-          <span class="hero-marquee-item">Piloten</span>
-          <span class="hero-marquee-item">Medizin</span>
-          <span class="hero-marquee-item">Psychologie</span>
-          <span class="hero-marquee-item">Pharmazie</span>
-          <span class="hero-marquee-item">Zahnmedizin</span>
-          <span class="hero-marquee-item">Justizwache</span>
-        </div>
       </div>
 
       <!-- Scroll indicator -->
-      <a href="#features" class="hero-scroll-hint" aria-label="Weiter scrollen">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-      </a>
+      <div class="hero-scroll-hint">
+        <span class="hero-scroll-label">Scroll</span>
+        <div class="hero-scroll-pill">
+          <div class="hero-scroll-dot"></div>
+        </div>
+      </div>
 
     </section>
 
