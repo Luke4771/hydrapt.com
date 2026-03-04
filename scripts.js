@@ -43,9 +43,28 @@ document.addEventListener('DOMContentLoaded', () => {
   initFeaturesCarousel();
   initReviewsCarousel();
 
+  // ---- Hero scroll hint hide on scroll ----
+  initHeroScrollHint();
+
   // ---- Scroll to top button ----
   initScrollToTop();
 });
+
+/* =========================================
+   HERO SCROLL HINT – hide on scroll
+   ========================================= */
+function initHeroScrollHint() {
+  const hint = document.querySelector('.hero-scroll-hint');
+  if (!hint) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      hint.classList.add('hero-scroll-hidden');
+    } else {
+      hint.classList.remove('hero-scroll-hidden');
+    }
+  }, { passive: true });
+}
 
 /* =========================================
    THEME

@@ -277,8 +277,40 @@ nav.main-nav {
 }
 .nav-mobile-panel a:hover { color: var(--accent-foreground); }
 .nav-mobile-panel a.btn-primary { color: var(--primary-foreground); }
-.nav-mobile-actions { margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem; }
-.nav-mobile-bottom { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+
+/* Mobile download CTA */
+.mobile-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.875rem 2rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary-foreground) !important;
+  background: var(--primary);
+  border-radius: var(--radius);
+  transition: opacity var(--duration-fast);
+}
+.mobile-download-btn:hover { opacity: 0.85; }
+
+/* Toggles pinned to bottom */
+.nav-mobile-bottom {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0.5;
+  transition: opacity var(--duration-fast);
+}
+.nav-mobile-bottom:hover { opacity: 0.8; }
 .nav-mobile-bottom .btn-icon {
   width: 2.25rem;
   height: 2.25rem;
@@ -535,11 +567,16 @@ nav.main-nav {
   opacity: 0.4;
   color: var(--foreground);
   animation: scrollBounce 2s ease-in-out infinite;
-  transition: opacity 0.2s;
+  transition: opacity 0.5s ease, filter 0.5s ease;
   display: none;
   z-index: 10;
 }
 .hero-scroll-hint:hover { opacity: 0.7; }
+.hero-scroll-hint.hero-scroll-hidden {
+  opacity: 0;
+  filter: blur(8px);
+  pointer-events: none;
+}
 @keyframes scrollBounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(6px); }
@@ -1726,7 +1763,7 @@ nav.main-nav {
   }
 
   /* -- Mobile Hero -- */
-  .hero-section { padding: 2rem 1rem; padding-bottom: 6rem; }
+  .hero-section { padding: 5.5rem 1rem 6rem; }
   .hero-container { gap: 2rem; padding: 0 1.5rem; }
   .hero-left {
     text-align: center;
@@ -1754,14 +1791,16 @@ nav.main-nav {
     padding: 0 1rem;
   }
 
-  /* Make navbar non-fixed on mobile */
+  /* Navbar sits over the hero on mobile, transparent */
   nav.main-nav {
-    position: relative;
-    background: var(--background);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
     padding: 0;
   }
   .dark nav.main-nav {
-    background: #000;
+    background: transparent;
   }
 
   /* Shared mobile section sizing */
