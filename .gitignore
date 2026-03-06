@@ -19,8 +19,18 @@ node_modules/
 dist/
 .cache/
 
-# Docs (local only)
+# Claude / AI tooling
+.claude/
 CLAUDE.md
+
+# Playwright MCP
+.playwright-mcp/
+
+# Mockups and previews (local only)
+Mockups/
+*-preview.png
+
+# Documentation (local only)
 readme.md
 
 # Misc
