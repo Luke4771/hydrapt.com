@@ -296,6 +296,14 @@ nav.main-nav {
   transition: opacity var(--duration-fast);
 }
 .mobile-download-btn:hover { opacity: 0.85; }
+.mobile-download-buttons {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+.mobile-download-buttons .mobile-download-btn {
+  flex: 1;
+}
 
 /* Toggles pinned to bottom */
 .nav-mobile-bottom {
@@ -1354,7 +1362,12 @@ nav.main-nav {
   padding: 0.75rem 1rem;
   font-size: 0.875rem; color: var(--muted-foreground);
 }
-.pricing-appstore { margin-top: 2rem; }
+.pricing-appstore {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
 
 /* ============================================
    FAQ SECTION
@@ -1828,7 +1841,7 @@ nav.main-nav {
   .pricing-card { padding: 1.5rem; }
   .pricing-card-top h3 { font-size: 1.5rem; }
   .pricing-card-top .price { font-size: 1.75rem; }
-  .pricing-appstore { display: flex; justify-content: center; }
+  .pricing-appstore { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
 
   .faq-item { padding: 1.25rem; }
   .faq-item summary { font-size: 1rem; }
